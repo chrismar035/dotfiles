@@ -1,0 +1,8 @@
+selectp -t 0              # Select pane 0
+cd ~/mobile_defense_rails
+splitw -h -p 50           # Split pane 0 vertically by 50%
+splitw -v -p 50           # Split pane 1 horizontally by 25%
+selectp -t 0              # Select pane 0
+cd ~/mobile_defense_rails
+selectp -t 1              # Select pane 1
+cd ~/mobile_defense_rails

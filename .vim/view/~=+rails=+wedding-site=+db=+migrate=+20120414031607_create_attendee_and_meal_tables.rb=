@@ -1,0 +1,128 @@
+let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
+argglobal
+let s:cpo_save=&cpo
+set cpo&vim
+nmap <buffer> gf <Plug>RailsTabFind
+nmap <buffer> f <Plug>RailsSplitFind
+nmap <buffer> gf <Plug>RailsFind
+let &cpo=s:cpo_save
+unlet s:cpo_save
+setlocal autoindent
+setlocal balloonexpr=RubyBalloonexpr()
+setlocal nobinary
+setlocal bufhidden=
+setlocal buflisted
+setlocal buftype=
+setlocal nocindent
+setlocal cinkeys=0{,0},0),:,0#,!^F,o,O,e
+setlocal cinoptions=
+setlocal cinwords=if,else,while,do,for,switch
+setlocal colorcolumn=
+setlocal comments=:#
+setlocal commentstring=#\ %s
+setlocal complete=.,w,b,u,t,i
+setlocal completefunc=syntaxcomplete#Complete
+setlocal nocopyindent
+setlocal cryptmethod=
+setlocal nocursorbind
+setlocal nocursorcolumn
+setlocal cursorline
+setlocal define=^\\s*def\\s\\+\\(self\\.\\)\\=
+setlocal dictionary=
+setlocal nodiff
+setlocal equalprg=
+setlocal errorformat=
+setlocal expandtab
+if &filetype != 'ruby'
+setlocal filetype=ruby
+endif
+setlocal foldcolumn=0
+setlocal foldenable
+setlocal foldexpr=0
+setlocal foldignore=#
+setlocal foldlevel=0
+setlocal foldmarker={{{,}}}
+setlocal foldmethod=manual
+setlocal foldminlines=1
+setlocal foldnestmax=20
+setlocal foldtext=foldtext()
+setlocal formatexpr=
+setlocal formatoptions=croql
+setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
+setlocal grepprg=
+setlocal iminsert=2
+setlocal imsearch=2
+setlocal include=^\\s*\\<\\(load\\|w*require\\)\\>
+setlocal includeexpr=RailsIncludeexpr()
+setlocal indentexpr=GetRubyIndent()
+setlocal indentkeys=0{,0},0),0],!^F,o,O,e,=end,=elsif,=when,=ensure,=rescue,==begin,==end
+setlocal noinfercase
+setlocal iskeyword=@,48-57,_,192-255
+setlocal keywordprg=ri
+setlocal linebreak
+setlocal nolisp
+setlocal nolist
+setlocal makeprg=
+setlocal matchpairs=(:),{:},[:]
+setlocal modeline
+setlocal modifiable
+setlocal nrformats=octal,hex
+setlocal number
+setlocal numberwidth=4
+setlocal omnifunc=rubycomplete#Complete
+setlocal path=.,~/rails/wedding-site,~/rails/wedding-site/app,~/rails/wedding-site/app/models,~/rails/wedding-site/app/controllers,~/rails/wedding-site/app/helpers,~/rails/wedding-site/config,~/rails/wedding-site/lib,~/rails/wedding-site/app/views,~/rails/wedding-site/spec,~/rails/wedding-site/spec/models,~/rails/wedding-site/spec/controllers,~/rails/wedding-site/spec/helpers,~/rails/wedding-site/spec/views,~/rails/wedding-site/spec/lib,~/rails/wedding-site/spec/requests,~/rails/wedding-site/spec/integration,~/rails/wedding-site/app/*,~/rails/wedding-site/vendor,~/rails/wedding-site/vendor/plugins/*/lib,~/rails/wedding-site/vendor/plugins/*/test,~/rails/wedding-site/vendor/rails/*/lib,~/rails/wedding-site/vendor/rails/*/test,NOTE:\\\ Gem.all_load_paths\\\ is\\\ deprecated\\\ with\\\ no\\\ replacement.\\\ It\\\ will\\\ be\\\ removed\\\ on\\\ or\\\ after\\\ 2011-10-01.\
+Gem.all_load_paths\\\ called\\\ from\\\ -e:1.\
+NOTE:\\\ Gem.all_partials\\\ is\\\ deprecated\\\ with\\\ no\\\ replacement.\\\ It\\\ will\\\ be\\\ removed\\\ on\\\ or\\\ after\\\ 2011-10-01.\
+Gem.all_partials\\\ called\\\ from\\\ ~/.rvm/rubies/ruby-1.9.2-head/lib/ruby/site_ruby/1.9.1/rubygems.rb:258.\
+/home/chrismar035/.rvm/rubies/ruby-1.9.2-head/lib/ruby/site_ruby/1.9.1/rubygems.rb:259:in\\\ `block\\\ (2\\\ levels)\\\ in\\\ all_load_paths':\\\ undefined\\\ method\\\ `add'\\\ for\\\ \"/home/chrismar035/.rvm/gems/ruby-1.9.2-head\":String\\\ (NoMethodError)\
+\	from\\\ ~/.rvm/rubies/ruby-1.9.2-head/lib/ruby/site_ruby/1.9.1/rubygems.rb:427:in\\\ `block\\\ (2\\\ levels)\\\ in\\\ each_load_path'\
+\	from\\\ ~/.rvm/rubies/ruby-1.9.2-head/lib/ruby/site_ruby/1.9.1/rubygems.rb:426:in\\\ `each'\
+\	from\\\ ~/.rvm/rubies/ruby-1.9.2-head/lib/ruby/site_ruby/1.9.1/rubygems.rb:426:in\\\ `block\\\ in\\\ each_load_path'\
+\	from\\\ ~/.rvm/rubies/ruby-1.9.2-head/lib/ruby/site_ruby/1.9.1/rubygems.rb:421:in\\\ `each'\
+\	from\\\ ~/.rvm/rubies/ruby-1.9.2-head/lib/ruby/site_ruby/1.9.1/rubygems.rb:421:in\\\ `each_load_path'\
+\	from\\\ ~/.rvm/rubies/ruby-1.9.2-head/lib/ruby/site_ruby/1.9.1/rubygems.rb:258:in\\\ `block\\\ in\\\ all_load_paths'\
+\	from\\\ ~/.rvm/rubies/ruby-1.9.2-head/lib/ruby/site_ruby/1.9.1/rubygems.rb:257:in\\\ `each'\
+\	from\\\ ~/.rvm/rubies/ruby-1.9.2-head/lib/ruby/site_ruby/1.9.1/rubygems.rb:257:in\\\ `all_load_paths'\
+\	from\\\ ~/.rvm/rubies/ruby-1.9.2-head/lib/ruby/site_ruby/1.9.1/rubygems/deprecate.rb:62:in\\\ `block\\\ (2\\\ levels)\\\ in\\\ deprecate'\
+\	from\\\ -e:1:in\\\ `<main>'\
+
+setlocal nopreserveindent
+setlocal nopreviewwindow
+setlocal quoteescape=\\
+setlocal noreadonly
+setlocal norelativenumber
+setlocal noscrollbind
+setlocal shiftwidth=2
+setlocal noshortname
+setlocal nosmartindent
+setlocal softtabstop=2
+setlocal nospell
+setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
+setlocal spellfile=
+setlocal spelllang=en
+setlocal statusline=
+setlocal suffixesadd=.rb,.rhtml,.erb,.rxml,.builder,.rjs,.mab,.liquid,.haml,.dryml,.mn,.slim
+setlocal swapfile
+setlocal synmaxcol=3000
+if &syntax != 'ruby'
+setlocal syntax=ruby
+endif
+setlocal tabstop=2
+setlocal tags=~/rails/wedding-site/tmp/tags,~/rails/wedding-site/.git/tags,./tags,tags,~/rails/wedding-site/tags
+setlocal textwidth=0
+setlocal thesaurus=
+setlocal noundofile
+setlocal nowinfixheight
+setlocal nowinfixwidth
+setlocal nowrap
+setlocal wrapmargin=0
+silent! normal! zE
+let s:l = 11 - ((10 * winheight(0) + 25) / 51)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+11
+normal! 010l
+let &so = s:so_save | let &siso = s:siso_save
+doautoall SessionLoadPost
+" vim: set ft=vim :

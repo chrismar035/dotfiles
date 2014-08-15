@@ -1,0 +1,15 @@
+vendor/bundle\n.DS_Store
+*.swp
+pengwynn-dotfiles*
+what_was_i_doing.md
+pidgin_*
+.github.recovery.store
+.google.recovery.store
+.lp.store
+.muttrc
+LS_COLORS/*
+config
+.viminfo
+dbsettings.inc.ph
+ksu-vpn.conf
+vim_configs/*

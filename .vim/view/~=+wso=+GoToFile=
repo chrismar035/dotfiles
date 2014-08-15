@@ -1,0 +1,223 @@
+let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
+argglobal
+noremap <buffer> <silent>  :call CommandTCursorStart()
+noremap <buffer> <silent>  :call CommandTCancel()
+noremap <buffer> <silent>  :call CommandTCursorEnd()
+noremap <buffer> <silent>  :call CommandTCursorLeft()
+noremap <buffer> <silent> 	 :call CommandTToggleFocus()
+let s:cpo_save=&cpo
+set cpo&vim
+noremap <buffer> <silent> <NL> :call CommandTSelectNext()
+noremap <buffer> <silent>  :call CommandTSelectPrev()
+noremap <buffer> <silent>  :call CommandTCursorRight()
+noremap <buffer> <silent>  :call CommandTAcceptSelection()
+noremap <buffer> <silent>  :call CommandTSelectNext()
+noremap <buffer> <silent>  :call CommandTSelectPrev()
+noremap <buffer> <silent>  :call CommandTAcceptSelectionSplit()
+noremap <buffer> <silent>  :call CommandTAcceptSelectionTab()
+noremap <buffer> <silent>  :call CommandTClear()
+noremap <buffer> <silent>  :call CommandTAcceptSelectionVSplit()
+noremap <buffer> <silent>   :call CommandTHandleKey(32)
+noremap <buffer> <silent> ! :call CommandTHandleKey(33)
+noremap <buffer> <silent> " :call CommandTHandleKey(34)
+noremap <buffer> <silent> # :call CommandTHandleKey(35)
+noremap <buffer> <silent> $ :call CommandTHandleKey(36)
+noremap <buffer> <silent> % :call CommandTHandleKey(37)
+noremap <buffer> <silent> & :call CommandTHandleKey(38)
+noremap <buffer> <silent> ' :call CommandTHandleKey(39)
+noremap <buffer> <silent> ( :call CommandTHandleKey(40)
+noremap <buffer> <silent> ) :call CommandTHandleKey(41)
+noremap <buffer> <silent> * :call CommandTHandleKey(42)
+noremap <buffer> <silent> + :call CommandTHandleKey(43)
+noremap <buffer> <silent> , :call CommandTHandleKey(44)
+noremap <buffer> <silent> - :call CommandTHandleKey(45)
+noremap <buffer> <silent> . :call CommandTHandleKey(46)
+noremap <buffer> <silent> / :call CommandTHandleKey(47)
+noremap <buffer> <silent> 0 :call CommandTHandleKey(48)
+noremap <buffer> <silent> 1 :call CommandTHandleKey(49)
+noremap <buffer> <silent> 2 :call CommandTHandleKey(50)
+noremap <buffer> <silent> 3 :call CommandTHandleKey(51)
+noremap <buffer> <silent> 4 :call CommandTHandleKey(52)
+noremap <buffer> <silent> 5 :call CommandTHandleKey(53)
+noremap <buffer> <silent> 6 :call CommandTHandleKey(54)
+noremap <buffer> <silent> 7 :call CommandTHandleKey(55)
+noremap <buffer> <silent> 8 :call CommandTHandleKey(56)
+noremap <buffer> <silent> 9 :call CommandTHandleKey(57)
+noremap <buffer> <silent> : :call CommandTHandleKey(58)
+noremap <buffer> <silent> ; :call CommandTHandleKey(59)
+noremap <buffer> <silent> < :call CommandTHandleKey(60)
+noremap <buffer> <silent> = :call CommandTHandleKey(61)
+noremap <buffer> <silent> > :call CommandTHandleKey(62)
+noremap <buffer> <silent> ? :call CommandTHandleKey(63)
+noremap <buffer> <silent> @ :call CommandTHandleKey(64)
+noremap <buffer> <silent> A :call CommandTHandleKey(65)
+noremap <buffer> <silent> B :call CommandTHandleKey(66)
+noremap <buffer> <silent> C :call CommandTHandleKey(67)
+noremap <buffer> <silent> D :call CommandTHandleKey(68)
+noremap <buffer> <silent> E :call CommandTHandleKey(69)
+noremap <buffer> <silent> F :call CommandTHandleKey(70)
+noremap <buffer> <silent> G :call CommandTHandleKey(71)
+noremap <buffer> <silent> H :call CommandTHandleKey(72)
+noremap <buffer> <silent> I :call CommandTHandleKey(73)
+noremap <buffer> <silent> J :call CommandTHandleKey(74)
+noremap <buffer> <silent> K :call CommandTHandleKey(75)
+noremap <buffer> <silent> L :call CommandTHandleKey(76)
+noremap <buffer> <silent> M :call CommandTHandleKey(77)
+noremap <buffer> <silent> N :call CommandTHandleKey(78)
+noremap <buffer> <silent> O :call CommandTHandleKey(79)
+noremap <buffer> <silent> P :call CommandTHandleKey(80)
+noremap <buffer> <silent> Q :call CommandTHandleKey(81)
+noremap <buffer> <silent> R :call CommandTHandleKey(82)
+noremap <buffer> <silent> S :call CommandTHandleKey(83)
+noremap <buffer> <silent> T :call CommandTHandleKey(84)
+noremap <buffer> <silent> U :call CommandTHandleKey(85)
+noremap <buffer> <silent> V :call CommandTHandleKey(86)
+noremap <buffer> <silent> W :call CommandTHandleKey(87)
+noremap <buffer> <silent> X :call CommandTHandleKey(88)
+noremap <buffer> <silent> Y :call CommandTHandleKey(89)
+noremap <buffer> <silent> Z :call CommandTHandleKey(90)
+noremap <buffer> <silent> [ :call CommandTHandleKey(91)
+noremap <buffer> <silent> \ :call CommandTHandleKey(92)
+noremap <buffer> <silent> ] :call CommandTHandleKey(93)
+noremap <buffer> <silent> _ :call CommandTHandleKey(95)
+noremap <buffer> <silent> ` :call CommandTHandleKey(96)
+noremap <buffer> <silent> a :call CommandTHandleKey(97)
+noremap <buffer> <silent> b :call CommandTHandleKey(98)
+noremap <buffer> <silent> c :call CommandTHandleKey(99)
+noremap <buffer> <silent> d :call CommandTHandleKey(100)
+noremap <buffer> <silent> e :call CommandTHandleKey(101)
+noremap <buffer> <silent> f :call CommandTHandleKey(102)
+noremap <buffer> <silent> g :call CommandTHandleKey(103)
+noremap <buffer> <silent> h :call CommandTHandleKey(104)
+noremap <buffer> <silent> i :call CommandTHandleKey(105)
+noremap <buffer> <silent> j :call CommandTHandleKey(106)
+noremap <buffer> <silent> k :call CommandTHandleKey(107)
+noremap <buffer> <silent> l :call CommandTHandleKey(108)
+noremap <buffer> <silent> m :call CommandTHandleKey(109)
+noremap <buffer> <silent> n :call CommandTHandleKey(110)
+noremap <buffer> <silent> o :call CommandTHandleKey(111)
+noremap <buffer> <silent> p :call CommandTHandleKey(112)
+noremap <buffer> <silent> q :call CommandTHandleKey(113)
+noremap <buffer> <silent> r :call CommandTHandleKey(114)
+noremap <buffer> <silent> s :call CommandTHandleKey(115)
+noremap <buffer> <silent> t :call CommandTHandleKey(116)
+noremap <buffer> <silent> u :call CommandTHandleKey(117)
+noremap <buffer> <silent> v :call CommandTHandleKey(118)
+noremap <buffer> <silent> w :call CommandTHandleKey(119)
+noremap <buffer> <silent> x :call CommandTHandleKey(120)
+noremap <buffer> <silent> y :call CommandTHandleKey(121)
+noremap <buffer> <silent> z :call CommandTHandleKey(122)
+noremap <buffer> <silent> { :call CommandTHandleKey(123)
+noremap <buffer> <silent> } :call CommandTHandleKey(125)
+noremap <buffer> <silent> ~ :call CommandTHandleKey(126)
+noremap <buffer> <silent> <Right> :call CommandTCursorRight()
+noremap <buffer> <silent> <Left> :call CommandTCursorLeft()
+noremap <buffer> <silent> <Down> :call CommandTSelectNext()
+noremap <buffer> <silent> <Del> :call CommandTDelete()
+noremap <buffer> <silent> <Up> :call CommandTSelectPrev()
+noremap <buffer> <silent> <C-CR> :call CommandTAcceptSelectionSplit()
+noremap <buffer> <silent> <BS> :call CommandTBackspace()
+let &cpo=s:cpo_save
+unlet s:cpo_save
+setlocal keymap=
+setlocal noarabic
+setlocal autoindent
+setlocal balloonexpr=
+setlocal nobinary
+setlocal bufhidden=unload
+setlocal nobuflisted
+setlocal buftype=nofile
+setlocal nocindent
+setlocal cinkeys=0{,0},0),:,0#,!^F,o,O,e
+setlocal cinoptions=
+setlocal cinwords=if,else,while,do,for,switch
+setlocal comments=s1:/*,mb:*,ex:*/,://,b:#,:%,:XCOMM,n:>,fb:-
+setlocal commentstring=/*%s*/
+setlocal complete=.,w,b,u,t,i
+setlocal completefunc=
+setlocal nocopyindent
+setlocal nocursorcolumn
+setlocal nocursorline
+setlocal define=
+setlocal dictionary=
+setlocal nodiff
+setlocal equalprg=
+setlocal errorformat=
+setlocal expandtab
+if &filetype != ''
+setlocal filetype=
+endif
+setlocal foldcolumn=0
+setlocal foldenable
+setlocal foldexpr=0
+setlocal foldignore=#
+setlocal foldlevel=99
+setlocal foldmarker={{{,}}}
+setlocal foldmethod=manual
+setlocal foldminlines=1
+setlocal foldnestmax=20
+setlocal foldtext=foldtext()
+setlocal formatexpr=
+setlocal formatoptions=tcq
+setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
+setlocal grepprg=
+setlocal iminsert=2
+setlocal imsearch=2
+setlocal include=
+setlocal includeexpr=
+setlocal indentexpr=
+setlocal indentkeys=0{,0},:,0#,!^F,o,O,e
+setlocal noinfercase
+setlocal iskeyword=@,48-57,_,192-255
+setlocal keywordprg=
+setlocal linebreak
+setlocal nolisp
+setlocal nolist
+setlocal makeprg=
+setlocal matchpairs=(:),{:},[:]
+setlocal modeline
+setlocal nomodifiable
+setlocal nrformats=octal,hex
+setlocal nonumber
+setlocal numberwidth=4
+setlocal omnifunc=phpcomplete#CompletePHP
+setlocal path=
+setlocal nopreserveindent
+setlocal nopreviewwindow
+setlocal quoteescape=\\
+setlocal noreadonly
+setlocal norightleft
+setlocal rightleftcmd=search
+setlocal noscrollbind
+setlocal shiftwidth=2
+setlocal noshortname
+setlocal smartindent
+setlocal softtabstop=2
+setlocal nospell
+setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
+setlocal spellfile=
+setlocal spelllang=en
+setlocal statusline=
+setlocal suffixesadd=
+setlocal noswapfile
+setlocal synmaxcol=3000
+if &syntax != ''
+setlocal syntax=
+endif
+setlocal tabstop=2
+setlocal tags=
+setlocal textwidth=0
+setlocal thesaurus=
+setlocal nowinfixheight
+setlocal nowinfixwidth
+setlocal nowrap
+setlocal wrapmargin=0
+let s:l = 1 - ((0 * winheight(0) + 8) / 16)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+1
+normal! 0
+let &so = s:so_save | let &siso = s:siso_save
+doautoall SessionLoadPost
+" vim: set ft=vim :

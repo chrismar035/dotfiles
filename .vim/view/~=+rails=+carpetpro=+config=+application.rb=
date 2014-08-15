@@ -1,0 +1,120 @@
+let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
+argglobal
+nnoremap <buffer> <silent> g} :exe        "ptjump =RubyCursorIdentifier()"
+nnoremap <buffer> <silent> } :exe          "ptag =RubyCursorIdentifier()"
+nnoremap <buffer> <silent> g] :exe      "stselect =RubyCursorIdentifier()"
+nnoremap <buffer> <silent> g :exe        "stjump =RubyCursorIdentifier()"
+nnoremap <buffer> <silent>  :exe v:count1."stag =RubyCursorIdentifier()"
+nnoremap <buffer> <silent> ] :exe v:count1."stag =RubyCursorIdentifier()"
+nnoremap <buffer> <silent>  :exe  v:count1."tag =RubyCursorIdentifier()"
+nnoremap <buffer> <silent> g] :exe       "tselect =RubyCursorIdentifier()"
+nnoremap <buffer> <silent> g :exe         "tjump =RubyCursorIdentifier()"
+setlocal keymap=
+setlocal noarabic
+setlocal autoindent
+setlocal nobinary
+setlocal bufhidden=
+setlocal buflisted
+setlocal buftype=
+setlocal nocindent
+setlocal cinkeys=0{,0},0),:,0#,!^F,o,O,e
+setlocal cinoptions=
+setlocal cinwords=if,else,while,do,for,switch
+setlocal colorcolumn=
+setlocal comments=:#
+setlocal commentstring=#\ %s
+setlocal complete=.,w,b,u,t,i
+setlocal concealcursor=
+setlocal conceallevel=0
+setlocal completefunc=
+setlocal nocopyindent
+setlocal cryptmethod=
+setlocal nocursorbind
+setlocal nocursorcolumn
+setlocal cursorline
+setlocal define=
+setlocal dictionary=
+setlocal nodiff
+setlocal equalprg=
+setlocal errorformat=
+setlocal expandtab
+if &filetype != 'ruby'
+setlocal filetype=ruby
+endif
+setlocal foldcolumn=0
+setlocal foldenable
+setlocal foldexpr=0
+setlocal foldignore=#
+setlocal foldlevel=0
+setlocal foldmarker={{{,}}}
+setlocal foldmethod=manual
+setlocal foldminlines=1
+setlocal foldnestmax=20
+setlocal foldtext=foldtext()
+setlocal formatexpr=
+setlocal formatoptions=croql
+setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
+setlocal grepprg=
+setlocal iminsert=0
+setlocal imsearch=0
+setlocal include=^\\s*\\<\\(load\\|w*require\\)\\>
+setlocal includeexpr=substitute(substitute(v:fname,'::','/','g'),'$','.rb','')
+setlocal indentexpr=GetRubyIndent()
+setlocal indentkeys=0{,0},0),0],!^F,o,O,e,=end,=elsif,=when,=ensure,=rescue,==begin,==end
+setlocal noinfercase
+setlocal iskeyword=@,48-57,_,192-255
+setlocal keywordprg=ri
+setlocal linebreak
+setlocal nolisp
+setlocal nolist
+setlocal makeprg=
+setlocal matchpairs=(:),{:},[:]
+setlocal modeline
+setlocal modifiable
+setlocal nrformats=octal,hex
+setlocal number
+setlocal numberwidth=4
+setlocal omnifunc=rubycomplete#Complete
+setlocal path=.,~/.rvm/rubies/ruby-1.9.2-p180/lib/ruby/site_ruby/1.9.1,~/.rvm/rubies/ruby-1.9.2-p180/lib/ruby/site_ruby/1.9.1/x86_64-linux,~/.rvm/rubies/ruby-1.9.2-p180/lib/ruby/site_ruby,~/.rvm/rubies/ruby-1.9.2-p180/lib/ruby/vendor_ruby/1.9.1,~/.rvm/rubies/ruby-1.9.2-p180/lib/ruby/vendor_ruby/1.9.1/x86_64-linux,~/.rvm/rubies/ruby-1.9.2-p180/lib/ruby/vendor_ruby,~/.rvm/rubies/ruby-1.9.2-p180/lib/ruby/1.9.1,~/.rvm/rubies/ruby-1.9.2-p180/lib/ruby/1.9.1/x86_64-linux,~/.rvm/gems/ruby-1.9.2-p180/gems/ZenTest-4.5.0/lib,~/.rvm/gems/ruby-1.9.2-p180/gems/abstract-1.0.0/lib,~/.rvm/gems/ruby-1.9.2-p180/gems/actionmailer-3.0.7/lib,~/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib,~/.rvm/gems/ruby-1.9.2-p180/gems/activemodel-3.0.7/lib,~/.rvm/gems/ruby-1.9.2-p180/gems/activerecord-3.0.7/lib,~/.rvm/gems/ruby-1.9.2-p180/gems/activeresource-3.0.7/lib,~/.rvm/gems/ruby-1.9.2-p180/gems/activesupport-3.0.7/lib,~/.rvm/gems/ruby-1.9.2-p180/gems/addressable-2.2.6/lib,~/.rvm/gems/ruby-1.9.2-p180/gems/arel-2.0.10/lib,~/.rvm/gems/ruby-1.9.2-p180/gems/arel-2.0.9/lib,~/.rvm/gems/ruby-1.9.2-p180/gems/autotest-4.4.6/lib,~/.rvm/gems/ruby-1.9.2-p180/gems/builder-2.1.2/lib,~/.rvm/gems/ruby-1.9.2-p180/gems/bundler-1.0.13/lib,~/.rvm/gems/ruby-1.9.2-p180/gems/chunky_png-1.2.0/lib,~/.rvm/gems/ruby-1.9.2-p180/gems/coderay-0.9.7/lib,~/.rvm/gems/ruby-1.9.2-p180/gems/compass-0.11.1/lib,~/.rvm/gems/ruby-1.9.2-p180/gems/daemons-1.1.3/lib,~/.rvm/gems/ruby-1.9.2-p180/gems/diff-lcs-1.1.2/lib,~/.rvm/gems/ruby-1.9.2-p180/gems/em-http-request-0.3.0/lib,~/.rvm/gems/ruby-1.9.2-p180/gems/erubis-2.6.6/lib,~/.rvm/gems/ruby-1.9.2-p180/gems/escape_utils-0.2.3/ext,~/.rvm/gems/ruby-1.9.2-p180/gems/escape_utils-0.2.3/lib,~/.rvm/gems/ruby-1.9.2-p180/gems/eventmachine-0.12.10/lib,~/.rvm/gems/ruby-1.9.2-p180/gems/faye-0.5.5/lib,~/.rvm/gems/ruby-1.9.2-p180/gems/ffi-1.0.7/ext,~/.rvm/gems/ruby-1.9.2-p180/gems/ffi-1.0.7/lib,~/.rvm/gems/ruby-1.9.2-p180/gems/fssm-0.2.7/lib,~/.rvm/gems/ruby-1.9.2-p180/gems/haml-3.0.24/lib,~/.rvm/gems/ruby-1.9.2-p180/gems/haml-3.0.25/lib,~/.rvm/gems/ruby-1.9.2-p180/gems/i18n-0.5.0/lib,~/.rvm/gems/ruby-1.9.2-p180/gems/json-1.5.1/ext,~/.rvm/gems/ruby-1.9.2-p180/gems/json-1.5.1/ext/json/ext,~/.rvm/gems/ruby-1.9.2-p180/gems/json-1.5.1/lib,~/.rvm/gems/ruby-1.9.2-p180/gems/juggernaut-2.0.1/lib,~/.rvm/gems/ruby-1.9.2-p180/gems/mail-2.2.19/lib,~/.rvm/gems/ruby-1.9.2-p180/gems/method_source-0.4.1/lib,~/.rvm/gems/ruby-1.9.2-p180/gems/mime-types-1.16/lib,~/.rvm/gems/ruby-1.9.2-p180/gems/mysql-2.8.1/lib,~/.rvm/gems/ruby-1.9.2-p180/gems/nokogiri-1.4.4/lib,~/.rvm/gems/ruby-1.9.2-p180/gems/polyglot-0.3.1/lib,~/.rvm/gems/ruby-1.9.2-p180/gems/pry-0.8.3/lib,~/.rvm/gems/ruby-1.9.2-p180/gems/rack-1.2.2/lib,~/.rvm/gems/ruby-1.9.2-p180/gems/rack-mount-0.6.14/lib,~/.rvm/gems/ruby-1.9.2-p180/gems/rack-test-0.5.7/lib,~/.rvm/gems/ruby-1.9.2-p180/gems/rails-3.0.7/lib,~/.rvm/gems/ruby-1.9.2-p180/gems/railties-3.0.7/lib,~/.rvm/gems/ruby-1.9.2-p180/gems/rake-0.8.7/lib,~/.rvm/gems/ruby-1.9.2-p180/gems/rake-0.9.0/lib,~/.rvm/gems/ruby-1.9.2-p180/gems/rb-inotify-0.8.4/lib,~/.rvm/gems/ruby-1.9.2-p180/gems/rdiscount-1.6.8/lib,~/.rvm/gems/ruby-1.9.2-p180/gems/redgreen-1.2.2/lib,~/.rvm/gems/ruby-1.9.2-p180/gems/redis-2.2.0/lib,~/.rvm/gems/ruby-1.9.2-p180/gems/roo-1.9.3/lib,~/.rvm/gems/ruby-1.9.2-p180/gems/rspec-2.5.0/lib,~/.rvm/gems/ruby-1.9.2-p180/gems/rspec-core-2.5.1/lib,~/.rvm/gems/ruby-1.9.2-p180/gems/rspec-expectations-2.5.0/lib,~/.rvm/gems/ruby-1.9.2-p180/gems/rspec-mocks-2.5.0/lib,~/.rvm/gems/ruby-1.9.2-p180/gems/ruby-ole-1.2.11.1/lib,~/.rvm/gems/ruby-1.9.2-p180/gems/ruby_parser-2.0.6/lib,~/.rvm/gems/ruby-1.9.2-p180/gems/sass-3.1.1/lib,~/.rvm/gems/ruby-1.9.2-p180/gems/sexp_processor-3.0.5/lib,~/.rvm/gems/ruby-1.9.2-p180/gems/shotgun-0.9/lib,~/.rvm/gems/ruby-1.9.2-p180/gems/sinatra-1.2.2/lib,~/.rvm/gems/ruby-1.9.2-p180/gems/sinatra-1.2.3/lib,~/.rvm/gems/ruby-1.9.2-p180/gems/slop-1.5.3/lib,~/.rvm/gems/ruby-1.9.2-p180/gems/spreadsheet-0.6.5.3/lib,~/.rvm/gems/ruby-1.9.2-p180/gems/spreadsheet-0.6.5.4/lib,~/.rvm/gems/ruby-1.9.2-p180/gems/sqlite3-1.3.3/lib,~/.rvm/gems/ruby-1.9.2-p180/gems/thin-1.2.11/
+setlocal nopreserveindent
+setlocal nopreviewwindow
+setlocal quoteescape=\\
+setlocal noreadonly
+setlocal norelativenumber
+setlocal norightleft
+setlocal rightleftcmd=search
+setlocal noscrollbind
+setlocal shiftwidth=2
+setlocal noshortname
+setlocal nosmartindent
+setlocal softtabstop=2
+setlocal nospell
+setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
+setlocal spellfile=
+setlocal spelllang=en
+setlocal statusline=
+setlocal suffixesadd=.rb
+setlocal swapfile
+setlocal synmaxcol=3000
+if &syntax != 'ruby'
+setlocal syntax=ruby
+endif
+setlocal tabstop=2
+setlocal tags=
+setlocal textwidth=0
+setlocal thesaurus=
+setlocal noundofile
+setlocal nowinfixheight
+setlocal nowinfixwidth
+setlocal nowrap
+setlocal wrapmargin=0
+silent! normal! zE
+let s:l = 44 - ((43 * winheight(0) + 26) / 53)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+44
+normal! 06l
+let &so = s:so_save | let &siso = s:siso_save
+doautoall SessionLoadPost
+" vim: set ft=vim :

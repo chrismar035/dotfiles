@@ -1,0 +1,104 @@
+let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
+argglobal
+setlocal keymap=
+setlocal noarabic
+setlocal autoindent
+setlocal nobinary
+setlocal bufhidden=
+setlocal buflisted
+setlocal buftype=
+setlocal nocindent
+setlocal cinkeys=0{,0},0),:,0#,!^F,o,O,e
+setlocal cinoptions=
+setlocal cinwords=if,else,while,do,for,switch
+setlocal comments=:#
+setlocal commentstring=-#\ %s
+setlocal complete=.,w,b,u,t,i
+setlocal completefunc=
+setlocal nocopyindent
+setlocal nocursorcolumn
+setlocal cursorline
+setlocal define=
+setlocal dictionary=
+setlocal nodiff
+setlocal equalprg=
+setlocal errorformat=
+setlocal expandtab
+if &filetype != 'haml'
+setlocal filetype=haml
+endif
+setlocal foldcolumn=0
+setlocal foldenable
+setlocal foldexpr=0
+setlocal foldignore=#
+setlocal foldlevel=0
+setlocal foldmarker={{{,}}}
+setlocal foldmethod=manual
+setlocal foldminlines=1
+setlocal foldnestmax=20
+setlocal foldtext=foldtext()
+setlocal formatexpr=
+setlocal formatoptions=croql
+setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
+setlocal grepprg=
+setlocal iminsert=0
+setlocal imsearch=0
+setlocal include=^\\s*\\<\\(load\\|w*require\\)\\>
+setlocal includeexpr=substitute(substitute(v:fname,'::','/','g'),'$','.rb','')
+setlocal indentexpr=GetHamlIndent()
+setlocal indentkeys=o,O,*<Return>,},],0),!^F,=end,=else,=elsif,=rescue,=ensure,=when
+setlocal noinfercase
+setlocal iskeyword=@,48-57,_,192-255
+setlocal keywordprg=ri
+setlocal linebreak
+setlocal nolisp
+setlocal nolist
+setlocal makeprg=
+setlocal matchpairs=(:),{:},[:],<:>
+setlocal modeline
+setlocal modifiable
+setlocal nrformats=octal,hex
+setlocal number
+setlocal numberwidth=4
+setlocal omnifunc=htmlcomplete#CompleteTags
+setlocal path=.,~/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/site_ruby/1.8,~/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/site_ruby/1.8/x86_64-linux,~/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/site_ruby,~/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/vendor_ruby/1.8,~/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/vendor_ruby/1.8/x86_64-linux,~/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/vendor_ruby,~/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8,~/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/x86_64-linux,,~/.rvm/gems/ruby-1.8.7-p302/gems/abstract-1.0.0/lib,~/.rvm/gems/ruby-1.8.7-p302/gems/actionmailer-3.0.3/lib,~/.rvm/gems/ruby-1.8.7-p302/gems/actionpack-3.0.3/lib,~/.rvm/gems/ruby-1.8.7-p302/gems/activemodel-3.0.3/lib,~/.rvm/gems/ruby-1.8.7-p302/gems/activerecord-3.0.3/lib,~/.rvm/gems/ruby-1.8.7-p302/gems/activeresource-3.0.3/lib,~/.rvm/gems/ruby-1.8.7-p302/gems/activesupport-2.3.8/lib,~/.rvm/gems/ruby-1.8.7-p302/gems/activesupport-3.0.3/lib,~/.rvm/gems/ruby-1.8.7-p302/gems/addressable-2.2.0/lib,~/.rvm/gems/ruby-1.8.7-p302/gems/addressable-2.2.2/lib,~/.rvm/gems/ruby-1.8.7-p302/gems/arel-2.0.4/lib,~/.rvm/gems/ruby-1.8.7-p302/gems/backports-1.18.2/lib,~/.rvm/gems/ruby-1.8.7-p302/gems/builder-2.1.2/lib,~/.rvm/gems/ruby-1.8.7-p302/gems/bundler-1.0.5/lib,~/.rvm/gems/ruby-1.8.7-p302/gems/columnize-0.3.1/lib,~/.rvm/gems/ruby-1.8.7-p302/gems/columnize-0.3.2/lib,~/.rvm/gems/ruby-1.8.7-p302/gems/configuration-1.1.0/lib,~/.rvm/gems/ruby-1.8.7-p302/gems/daemons-1.1.0/lib,~/.rvm/gems/ruby-1.8.7-p302/gems/data_mapper-1.0.0/lib,~/.rvm/gems/ruby-1.8.7-p302/gems/data_mapper-1.0.2/lib,~/.rvm/gems/ruby-1.8.7-p302/gems/data_objects-0.10.2/lib,~/.rvm/gems/ruby-1.8.7-p302/gems/diff-lcs-1.1.2/lib,~/.rvm/gems/ruby-1.8.7-p302/gems/dm-aggregates-1.0.0/lib,~/.rvm/gems/ruby-1.8.7-p302/gems/dm-aggregates-1.0.2/lib,~/.rvm/gems/ruby-1.8.7-p302/gems/dm-constraints-1.0.0/lib,~/.rvm/gems/ruby-1.8.7-p302/gems/dm-constraints-1.0.2/lib,~/.rvm/gems/ruby-1.8.7-p302/gems/dm-core-1.0.0/lib,~/.rvm/gems/ruby-1.8.7-p302/gems/dm-core-1.0.2/lib,~/.rvm/gems/ruby-1.8.7-p302/gems/dm-do-adapter-1.0.0/lib,~/.rvm/gems/ruby-1.8.7-p302/gems/dm-do-adapter-1.0.2/lib,~/.rvm/gems/ruby-1.8.7-p302/gems/dm-migrations-1.0.0/lib,~/.rvm/gems/ruby-1.8.7-p302/gems/dm-migrations-1.0.2/lib,~/.rvm/gems/ruby-1.8.7-p302/gems/dm-mysql-adapter-1.0.0/lib,~/.rvm/gems/ruby-1.8.7-p302/gems/dm-mysql-adapter-1.0.2/lib,~/.rvm/gems/ruby-1.8.7-p302/gems/dm-serializer-1.0.0/lib,~/.rvm/gems/ruby-1.8.7-p302/gems/dm-serializer-1.0.2/lib,~/.rvm/gems/ruby-1.8.7-p302/gems/dm-timestamps-1.0.0/lib,~/.rvm/gems/ruby-1.8.7-p302/gems/dm-timestamps-1.0.2/lib,~/.rvm/gems/ruby-1.8.7-p302/gems/dm-transactions-1.0.0/lib,~/.rvm/gems/ruby-1.8.7-p302/gems/dm-transactions-1.0.2/lib,~/.rvm/gems/ruby-1.8.7-p302/gems/dm-types-1.0.0/lib,~/.rvm/gems/ruby-1.8.7-p302/gems/dm-types-1.0.2/lib,~/.rvm/gems/ruby-1.8.7-p302/gems/dm-validations-1.0.0/lib,~/.rvm/gems/ruby-1.8.7-p302/gems/dm-validations-1.0.2/lib,~/.rvm/gems/ruby-1.8.7-p302/gems/do_mysql-0.10.2/lib,~/.rvm/gems/ruby-1.8.7-p302/gems/do_sqlite3-0.10.2/lib,~/.rvm/gems/ruby-1.8.7-p302/gems/erubis-2.6.6/lib,~/.rvm/gems/ruby-1.8.7-p302/gems/extlib-0.9.15/lib,~/.rvm/gems/ruby-1.8.7-p302/gems/fastercsv-1.5.3/lib,~/.rvm/gems/ruby-1.8.7-p302/gems/ffi-0.6.3/ext,~/.rvm/gems/ruby-1.8.7-p302/gems/ffi-0.6.3/lib,~/.rvm/gems/ruby-1.8.7-p302/gems/git-1.2.5/lib,~/.rvm/gems/ruby-1.8.7-p302/gems/haml-3.0.17/lib,~/.rvm/gems/ruby-1.8.7-p302/gems/haml-3.0.21/lib,~/.rvm/gems/ruby-1.8.7-p302/gems/haml-3.0.24/lib,~/.rvm/gems/ruby-1.8.7-p302/gems/heroku-1.13.5/lib,~/.rvm/gems/ruby-1.8.7-p302/gems/heroku-1.13.7/lib,~/.rvm/gems/ruby-1.8.7-p302/gems/heroku-1.9.13/lib,~/.rvm/gems/ruby-1.8.7-p302/gems/hpricot-0.8.3/lib,~/.rvm/gems/ruby-1.8.7-p302/gems/http_router-0.3.13/lib,~/.rvm/gems/ruby-1.8.7-p302/gems/http_router-0.4.1/lib,~/.rvm/gems/ruby-1.8.7-p302/gems/i18n-0.4.1/lib,~/.rvm/gems/ruby-1.8.7-p302/gems/i18n-0.4.2/lib,~/.rvm/gems/ruby-1.8.7-p302/gems/json-1.4.6/ext,~/.rvm/gems/ruby-1.8.7-p302/gems/json-1.4.6/ext/json/ext,~/.rvm/gems/ruby-1.8.7-p302/gems/json-1.4.6/lib,~/.rvm/gems/ruby-1.8.7-p302/gems/json_pure-1.4.6/lib,~/.rvm/gems/ruby-1.8.7-p302/gems/launchy-0.3.7
+setlocal nopreserveindent
+setlocal nopreviewwindow
+setlocal quoteescape=\\
+setlocal noreadonly
+setlocal norightleft
+setlocal rightleftcmd=search
+setlocal noscrollbind
+setlocal shiftwidth=2
+setlocal noshortname
+setlocal nosmartindent
+setlocal softtabstop=2
+setlocal nospell
+setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
+setlocal spellfile=
+setlocal spelllang=en
+setlocal statusline=
+setlocal suffixesadd=.rb
+setlocal swapfile
+setlocal synmaxcol=3000
+if &syntax != 'haml'
+setlocal syntax=haml
+endif
+setlocal tabstop=2
+setlocal tags=
+setlocal textwidth=0
+setlocal thesaurus=
+setlocal nowinfixheight
+setlocal nowinfixwidth
+setlocal nowrap
+setlocal wrapmargin=0
+silent! normal! zE
+let s:l = 4 - ((3 * winheight(0) + 26) / 52)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+4
+normal! 017l
+let &so = s:so_save | let &siso = s:siso_save
+doautoall SessionLoadPost
+" vim: set ft=vim :
