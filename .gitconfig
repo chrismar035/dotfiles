@@ -19,7 +19,7 @@
 [gui]
   geometry = 1400x800+150+150 400 300
   commitmsgwidth = 50
-	gcwarning = false
+  gcwarning = false
 [alias]
   # Single line log
   slog    = log --oneline
@@ -148,4 +148,4 @@
   autosquash = true
   autostash = true
 [github]
-	user = chrismar035
+  user = chrismar035
