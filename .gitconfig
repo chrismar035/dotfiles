@@ -21,6 +21,10 @@
   commitmsgwidth = 50
   gcwarning = false
 [alias]
+  # Commit first; rebase later
+  save    = !git add -A && git commit -m 'SAVEPOINT'
+  wip     = !git add -u && git commit -m "WIP"
+  undo    = reset HEAD~1 --mixed
   # Single line log
   slog    = log --oneline
   # File names in logs
