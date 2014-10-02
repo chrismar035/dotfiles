@@ -10,16 +10,16 @@ require 'irb/completion'
 # end
 
 # awesome print
-begin
-  require 'awesome_print'
-  if defined?(Pry)
-    AwesomePrint.pry!
-  else
-    AwesomePrint.irb!
-  end
-rescue LoadError => err
-  warn "Couldn't load awesome_print: #{err}"
-end
+# begin
+#   require 'awesome_print'
+#   if defined?(Pry)
+#     AwesomePrint.pry!
+#   else
+#     AwesomePrint.irb!
+#   end
+# rescue LoadError => err
+#   warn "Couldn't load awesome_print: #{err}"
+# end
 
 # configure irb
 IRB.conf[:PROMPT_MODE] = :SIMPLE
