@@ -21,6 +21,7 @@ alias cucumber='cucumber'
 alias gind='gem install --no-rdoc --no-ri'
 alias gi='gem install'
 alias rr='rbenv rehash'
+alias rubopr='g diff master --name-only | grep -v schema | xargs rubocop'
 
 alias mmv="noglob zmv -W"
 
