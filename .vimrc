@@ -411,7 +411,7 @@ let g:syntastic_echo_current_error=0
 let g:syntastic_auto_jump=1
 let g:syntastic_auto_loc_list_height=3
 let g:syntastic_auto_loc_list=1
-" let g:syntastic_mode_map = { 'passive_filetypes': ['cucumber', 'scss', 'html', 'c', 'java', 'cpp'], 'mode': 'active' }
+let g:syntastic_mode_map = { 'passive_filetypes': ['cucumber'], 'mode': 'active' }
 
 
 " -----------------------------------------------------------------------------
