@@ -259,7 +259,7 @@ au BufNewFile,BufRead *_steps.rb set filetype=cucumber
 "autocmd FileType html,xml,php so ~/.vim/plugin/html_autoclosetag.vim
 
 " Strip trailing whitespace from certain file types
-autocmd FileType c,cpp,java,php,ruby,scss,feature,python,haml autocmd BufWritePre <buffer> :%s/\s\+$//e
+autocmd FileType c,cpp,java,php,ruby,scss,feature,python,haml,javascript,scss autocmd BufWritePre <buffer> :%s/\s\+$//e
 " autocmd BufWritePost * silent execute "!git stripspace < <afile>" | redraw!
 nnoremap <silent> <F6> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 " Highlight trailing whitespace
