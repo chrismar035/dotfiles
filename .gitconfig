@@ -25,6 +25,8 @@
   save    = !git add -A && git commit -m 'SAVEPOINT'
   wip     = !git add -u && git commit -m "WIP"
   undo    = reset HEAD~1 --mixed
+  # Edit config file
+  ec      = config --global -e
   # Single line log
   slog    = log --oneline
   # File names in logs
