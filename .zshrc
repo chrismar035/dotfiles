@@ -94,7 +94,8 @@ if [[ -n "$TMUX" || -n "$SSH_CLIENT" || -n "$ZSHRC_FORCE" ]]; then
 
   # go workspace
   export GOPATH=$HOME/workspace/go
-  export PATH=$PATH:$GOPATH/bin
+  export GOROOT=$HOME/workspace/sources/go
+  export PATH=$PATH:$GOPATH/bin:$GOROOT/bin
 
   # add local zshrc
   source_if_exists $HOME/.zshrc_local
