@@ -5,7 +5,7 @@
   logallrefupdates         = true
   editor                   = vim
   # personal default .gitignore
-  excludesfile             = /hom/chrismar035/.gitignore
+  excludesfile             = /home/chrismar035/.gitignore
   # disable wrapping in less paginated deff and logs
   pager                    = "less -RS"
 #defaults for any master branches
@@ -49,6 +49,9 @@
   caa     = commit -a --amend
   # stage deleted tracked files
   df      = add -u
+  # Clean up old local branches with missing remotes (Remember to push any
+  # branches you want to save first)
+  cleanup = !git branch -vv | grep gone] | tr -s ' ' | cut -d ' ' -f 2 | xargs git branch -D ' '
   # checkout
   co      = checkout
   com     = checkout master
