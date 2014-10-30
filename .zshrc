@@ -44,7 +44,6 @@ if [[ -n "$TMUX" || -n "$SSH_CLIENT" || -n "$ZSHRC_FORCE" ]]; then
   # show completion menu when number of options is at least 2
   zstyle ':completion:*' menu select=2
 
-
   # environment stuff
   source_if_exists $HOME/.zshenv
 
@@ -140,3 +139,6 @@ fi
 
 # added by travis gem
 [ -f /Users/chrismar035/.travis/travis.sh ] && source /Users/chrismar035/.travis/travis.sh
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
