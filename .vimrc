@@ -264,6 +264,8 @@ autocmd FileType c,cpp,java,php,ruby,scss,feature,python,haml,javascript,scss au
 nnoremap <silent> <F6> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 " Highlight trailing whitespace
 match LongLineWarning /\s\+$/
+" Highlight tab characters
+match Error /\t/
 
 " Inser New Line **************************************************************
 map <S-Enter> O<ESC> " awesome, inserts new line without going into insert mode
