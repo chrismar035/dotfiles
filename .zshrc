@@ -1,4 +1,5 @@
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH
+export PATH="$HOME/.tmuxifier/bin:$PATH"
 
 if [[ -n "$TMUX" || -n "$SSH_CLIENT" || -n "$ZSHRC_FORCE" ]]; then
   # A convenience function I'll be using a lot
@@ -135,6 +136,7 @@ else
   fi
 fi
 
+eval "$(tmuxifier init -)"
 [[ -a "/tmp/tmux-tmux" ]] && chmod 1777 /tmp/tmux-tmux
 
 # added by travis gem
