@@ -56,6 +56,8 @@ layout workLayout 'iTerm' move screenOriginX;screenOriginY screenSizeX*0.97;scre
 layout workLayout 'Android Studio' move screenOriginX+screenSizeX/3;screenOriginY screenSizeX*0.63;screenSizeY 0
 layout workLayout 'Google Chrome':MAIN_FIRST push left bar-resize:screenSizeX*0.63 | move screenOriginX+screenSizeX/6.5;screenOriginY+screenSizeY/11 screenSizeX*0.70;screenSizeY*0.80 0
 layout workLayout 'HipChat' push right bar-resize:screenSizeX*0.37
+layout workLayout 'Slack' push right bar-resize:screenSizeX*0.37
+
 
 bind 2:ctrl,shift layout workLayout
 #default workLayout count:2 #resolutions:2560x1440;1920x1080
