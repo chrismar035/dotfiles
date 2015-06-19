@@ -5,7 +5,7 @@
   logallrefupdates         = true
   editor                   = vim
   # personal default .gitignore
-  excludesfile             = /home/chrismar035/.gitignore
+  excludesfile = /Users/chrismar035/.gitignore_global
   # disable wrapping in less paginated deff and logs
   pager                    = "less -RS"
 #defaults for any master branches
@@ -59,8 +59,10 @@
   cob     = checkout -b
   # short syntax for working directory status
   s       = status -sb
+  # shorter diff
+  d       = diff
   # word-level diff (instead of line level)
-  d       = diff --word-diff
+  dw      = diff --word-diff
   # ammend my last commit
   fix     = commit -a --amend -C HEAD
   # update feature branch from the lastest remote master
@@ -96,6 +98,8 @@
   pf      = push -f
   # push
   p       = push
+  # post-merge -- multiple clean up tasks after a merge happens
+  pm      = "!f() { git checkout master && git pull && git sweep; }; f"
   # push new branch and track
   po      = push -u origin
   # pull
@@ -144,7 +148,7 @@
   email = chris@chrismar035.com
 # help me with conflicts
 [merge]
-  tool=diffmerge
+  tool = diffconflicts
 [mergetool "diffmerge"]
   cmd = diffmerge --merge --result=$MERGED $LOCAL $BASE $REMOTE
   trustExitCode = false
@@ -158,3 +162,13 @@
   autostash = true
 [github]
   user = chrismar035
+[mergetool "diffconflicts"]
+  cmd = diffconflicts vim $BASE $LOCAL $REMOTE $MERGED
+  trustExitCode = true
+  keepBackup = false
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
