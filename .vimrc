@@ -35,6 +35,9 @@ let g:mapleader = ","
 
 set viminfo='100,f1
 
+" Prevent that q window thingy
+map q: :q
+
 " Tabs ************************************************************************
 "set sta " a <Tab> in an indent inserts 'shiftwidth' spaces
 
@@ -67,6 +70,13 @@ set wildmode=longest,list:longest
 set backup
 set backupdir=~/vim-backup
 set dir=~/vim-swap
+
+" Persistent undo
+set undofile
+set undodir=$HOME/.vim-undo
+set undolevels=1000
+set undoreload=10000
+set hidden
 
 nnoremap <silent> ,t :TlistToggle<CR>
 let Tlist_GainFocus_On_ToggleOpen = 1
@@ -156,6 +166,9 @@ if $COLORTERM == 'gnome-terminal'
 endif
 set background=dark
 syntax on " syntax highlighting
+syntax sync minlines=256
+set synmaxcol=300
+"set re=1
 colorscheme superman
 
 
@@ -184,9 +197,6 @@ let g:surround_37 = "{% \r %}"
 " Mappings ********************************************************************
 " Professor VIM says '87% of users prefer jj over esc', jj abrams disagrees
 imap kj <Esc>
-imap uu _
-imap hh =>
-imap aa @
 inoremap <Left> <NOP>
 inoremap <Right> <NOP>
 inoremap <Up> <NOP>
@@ -265,7 +275,7 @@ nnoremap <silent> <F6> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 " Highlight trailing whitespace
 match LongLineWarning /\s\+$/
 " Highlight tab characters
-match Error /\t/
+" match Error /\t/
 
 " Inser New Line **************************************************************
 map <S-Enter> O<ESC> " awesome, inserts new line without going into insert mode
@@ -300,10 +310,8 @@ set nolist
 " Cursor Movement *************************************************************
 " Make cursor move by visual lines instead of file lines (when wrapping)
 map <up> gk
-map k gk
 imap <up> <C-o>gk
 map <down> gj
-map j gj
 imap <down> <C-o>gj
 map E ge
 
@@ -337,10 +345,10 @@ set completeopt=menu,preview
 
 
 " Folding *********************************************************************
-set foldmethod=syntax
-set foldlevelstart=1
-set foldminlines=5
-set foldnestmax=2
+" set foldmethod=syntax
+" set foldlevelstart=1
+" set foldminlines=5
+" set foldnestmax=2
 
 " -----------------------------------------------------------------------------  
 " |                              Plug-ins                                     |
@@ -360,14 +368,6 @@ let NERDTreeMouseMode=1
 
 " use old school tree indicators w/o unicode
 let g:NERDTreeDirArrows=0
-
-
-" SnippetsEmu *****************************************************************
-"imap <unique> <C-j> <Plug>Jumper
-"let g:snip_start_tag = "_\."
-"let g:snip_end_tag = "\._"
-"let g:snip_elem_delim = ":"
-"let g:snip_set_textmate_cp = '1'  " Tab to expand snippets, not automatically.
 
 
 " fuzzyfinder_textmate ********************************************************
@@ -392,6 +392,12 @@ noremap <leader>y :CommandTFlush<cr>
 
 " Ctrl-P *******************************************************************
 noremap <leader>j :CtrlPMixed<cr>
+let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
+      \ --ignore .git
+      \ --ignore .svn
+      \ --ignore .hg
+      \ --ignore .DS_Store
+      \ -g ""'
 
 " AutoScrollMode ***********************************************************
 noremap <leader>. :call AutoScrollMode()<CR>
@@ -413,7 +419,8 @@ let g:syntastic_echo_current_error=0
 let g:syntastic_auto_jump=1
 let g:syntastic_auto_loc_list_height=3
 let g:syntastic_auto_loc_list=1
-let g:syntastic_mode_map = { 'passive_filetypes': ['cucumber'], 'mode': 'active' }
+let g:syntastic_mode_map = { 'passive_filetypes': ['html', 'cucumber', 'cpp'], 'mode': 'active' }
+let g:syntastic_ruby_mri_exe= "~/.rbenv/versions/2.2.2/bin/ruby"
 
 
 " -----------------------------------------------------------------------------
@@ -451,3 +458,16 @@ map <Leader>h :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>
 map <Leader>a :call RunAllSpecs()<CR>
 let g:rspec_command = "compiler rspec | set makeprg=zeus | Make rspec {spec}"
+
+" -----------------------------------------------------------------------------
+" |                                UltiSnips                                   |
+" -----------------------------------------------------------------------------
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-a>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" -----------------------------------------------------------------------------
+" |                                Expand Region                              |
+" -----------------------------------------------------------------------------
+vmap v <Plug>(expand_region_expand
+vmap <C-v> <Plug>(expand_region_shrink)
