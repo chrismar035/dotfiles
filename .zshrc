@@ -97,12 +97,12 @@ if [[ -n "$TMUX" || -n "$SSH_CLIENT" || -n "$ZSHRC_FORCE" ]]; then
   export GOROOT=$HOME/workspace/sources/go
   export PATH=$PATH:$GOPATH/bin:$GOROOT/bin
 
+  # scala workspace
+  export SCALA_HOME=$HOME/workspace/sources/scala
+  export PATH=$PATH:$SCALA_HOME/bin
+
   # add local zshrc
   source_if_exists $HOME/.zshrc_local
-
-  # if [[ ! $TERM =~ screen ]]; then
-  #   exec tmux -2
-  # fi
 
   # use tmux with ssh
   function ssht(){
