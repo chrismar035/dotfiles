@@ -472,3 +472,26 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 " -----------------------------------------------------------------------------
 vmap v <Plug>(expand_region_expand
 vmap <C-v> <Plug>(expand_region_shrink)
+
+" -----------------------------------------------------------------------------
+" |                                vim-go                                     |
+" -----------------------------------------------------------------------------
+au FileType go nmap <leader>r <Plug>(go-run)
+au FileType go nmap <leader>b <Plug>(go-build)
+au FileType go nmap <leader>t <Plug>(go-test)
+au FileType go nmap <leader>c <Plug>(go-coverage)
+au FileType go nmap <leader>v <Plug>(go-vet)
+
+au FileType go nmap <Leader>gd <Plug>(go-doc)
+au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
+
+" Show interfaces implemented under cursor
+au FileType go nmap <Leader>s <Plug>(go-implements)
+
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+
+let g:go_fmt_command = "goimports"
