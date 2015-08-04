@@ -95,7 +95,7 @@
   # abort an in progress rebase
   fuckit  = rebase --abort
   # force push
-  pf      = push -f
+  pf      = push --force-with-lease
   # push
   p       = push
   # post-merge -- multiple clean up tasks after a merge happens
