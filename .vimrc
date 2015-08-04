@@ -169,7 +169,8 @@ syntax on " syntax highlighting
 syntax sync minlines=256
 set synmaxcol=300
 "set re=1
-colorscheme superman
+"colorscheme superman
+colorscheme madeofcode
 
 
 " Status Line *****************************************************************
