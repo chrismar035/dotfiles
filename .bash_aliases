@@ -23,6 +23,8 @@ alias gi='gem install'
 alias rr='rbenv rehash'
 alias rubopr='g diff master --name-only | grep -v schema | xargs rubocop'
 
+alias lsc="tmuxifier w server-core"
+
 alias mmv="noglob zmv -W"
 
 alias sw='cd ~/Dropbox/soy_wiki; soywiki'
@@ -63,3 +65,4 @@ extract () {
 function mcd() {
   mkdir -p "$1" && cd "$1";
 }
+
