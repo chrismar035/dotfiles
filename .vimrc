@@ -454,10 +454,10 @@ let g:calendar_google_calendar = 1
 " |                                Vim Rspec                                  |
 " -----------------------------------------------------------------------------
 " RSpec.vim mappings
-map <Leader>r :call RunCurrentSpecFile()<CR>
-map <Leader>h :call RunNearestSpec()<CR>
-map <Leader>l :call RunLastSpec()<CR>
-map <Leader>a :call RunAllSpecs()<CR>
+au FileType ruby map <Leader>r :call RunCurrentSpecFile()<CR>
+au FileType ruby map <Leader>h :call RunNearestSpec()<CR>
+au FileType ruby map <Leader>l :call RunLastSpec()<CR>
+au FileType ruby map <Leader>a :call RunAllSpecs()<CR>
 let g:rspec_command = "compiler rspec | set makeprg=zeus | Make rspec {spec}"
 
 " -----------------------------------------------------------------------------
