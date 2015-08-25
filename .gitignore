@@ -14,3 +14,4 @@ vendor/bundle\n.DS_Store
 vim_configs/*
 what_was_i_doing.md
 z
+.nvim/plugged/*
