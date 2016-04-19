@@ -52,7 +52,7 @@ bind 1:ctrl,shift relaunch
 bind esc:cmd hint
 
 # 4k retina 4k retina and macbook laptop retina
-layout workLayout 'iTerm':TITLE_ORDER_REGEX='tmux,ttytter' move screenOriginX;screenOriginY screenSizeX*0.97;screenSizeY 1 | move screenOriginX;screenOriginY screenSizeX;screenSizeY 2
+layout workLayout 'iTerm':TITLE_ORDER_REGEX='tmux,ttytter' move screenOriginX;screenOriginY screenSizeX;screenSizeY 1 | move screenOriginX;screenOriginY screenSizeX;screenSizeY 2
 layout workLayout 'Android Studio' move screenOriginX+screenSizeX/3;screenOriginY screenSizeX*0.63;screenSizeY 1
 layout workLayout 'Google Chrome':MAIN_FIRST push left bar-resize:screenSizeX*0.60 0 | move screenOriginX+screenSizeX/6.5;screenOriginY+screenSizeY/11 screenSizeX*0.70;screenSizeY*0.80 1 | move screenOriginX+screenSizeX/6.5;screenOriginY+screenSizeY/11 screenSizeX*0.70;screenSizeY*0.80 2
 layout workLayout 'Slack' move screenOriginX+screenSizeX*0.60;screenOriginY+screenSizeY*0.45 screenSizeX*0.40;screenSizeY*0.55 0
