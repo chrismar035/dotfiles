@@ -40,13 +40,13 @@
   # two days of commits
   standup = "log --since '2 days ago' --oneline --author chris@chrismar035.com"
   # commit
-  c       = commit
+  c       = commit --verbose
   # commit all modified files (doesn't do untracked)
-  acom    = commit -a
+  acom    = commit -a --verbose
   # ammend previous commit
-  ca      = commit --amend
+  ca      = commit --amend --verbose
   # ammend all into previous commit
-  caa     = commit -a --amend
+  caa     = commit -a --amend --verbose
   # stage deleted tracked files
   df      = add -u
   # Clean up old local branches with missing remotes (Remember to push any
