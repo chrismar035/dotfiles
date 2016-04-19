@@ -65,6 +65,8 @@
   dw      = diff --word-diff
   # ammend my last commit
   fix     = commit -a --amend -C HEAD
+  # create a fixup commit
+  fixup   = commit -a --fixup
   # update feature branch from the lastest remote master
   sync    = "!f() { echo Syncing with master && git checkout master && git pull && git checkout - && git rebase master; }; f"
   # delete and recreate a rebased remote branch
