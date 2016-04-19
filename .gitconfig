@@ -7,7 +7,7 @@
   # personal default .gitignore
   excludesfile = /Users/chrismar035/.gitignore_global
   # disable wrapping in less paginated deff and logs
-  pager                    = "less -RS"
+  pager = diff-so-fancy | less --tabs=1,5 -R
 #defaults for any master branches
 [remote "origin"]
   push = HEAD
