@@ -44,6 +44,12 @@ alias lr='ls -R | grep ":$" | \
   sed -e '\''s/:$//'\'' -e \
   '\''s/[^-][^\/]*\//--/g'\'' -e '\''s/^/   /'\'' -e '\''s/-/|/'\'''
 
+# Docker stuff
+alias de='eval "$(docker-machine env dinghy)"'
+alias dc='docker-compose'
+alias dcr='docker-compose run'
+alias cleanup_docker='docker rm $(docker ps -a -q); docker rmi $(docker images | grep "^<none>" | awk "{print $3}")'
+
 # extract most known types of archives
 extract () {
     if [ -f $1 ] ; then
