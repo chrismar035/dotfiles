@@ -35,12 +35,20 @@ set undolevels=1000
 set undoreload=10000
 set hidden
 
+" limit syntax highlighting to 120 chars
+set synmaxcol=120
+
 " Tag List
 nnoremap <silent> ,t :TlistToggle<CR>
 let Tlist_GainFocus_On_ToggleOpen = 1
 let Tlist_Auto_Highlight_Tag = 1
 let Tlist_Close_On_Select = 1
 let Tlist_Use_Right_Window = 1
+
+" Spelling ********************************************************************
+" Toggle spell checking
+map <leader>s :setlocal spell! spelllang=en_us<CR>
+
 
 " Indenting *******************************************************************
 set ai " Automatically set the indent of a new line (local to buffer)
@@ -69,14 +77,8 @@ set ignorecase " Ignore case when searching
 set smartcase " Ignore case when searching lowercase
 
 " In visual mode when you press * or # to search for the current selection
-vnoremap <silent> * :call VisualSearch('f')<CR>
-vnoremap <silent> # :call VisualSearch('b')<CR>
-
-function! CmdLine(str)
-  exe "menu Foo.Bar :" . a:str
-  emenu Foo.Bar
-  unmenu Foo
-endfunction
+vnoremap <silent> * :call VisualSearch('b')<CR>
+vnoremap <silent> # :call VisualSearch('f')<CR>
 
 " From an idea by Michael Naumann
 function! VisualSearch(direction) range
@@ -98,6 +100,21 @@ function! VisualSearch(direction) range
   let @" = l:saved_reg
 endfunction
 
+function! CmdLine(str)
+  exe "menu Foo.Bar :" . a:str
+  emenu Foo.Bar
+  unmenu Foo
+endfunction
+
+" Macros *******************************************************************
+" Convert to Ruby 1.9 style hash syntax
+let @h = 'F:xel2xr:'
+"
+" Wrap this line at 80 chars
+let @w = 'g080lF i'
+
+" Wrap method parameters
+let @p = 'f,al'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Spell checking
@@ -170,10 +187,13 @@ nmap <leader>g :Gblame<cr>
 nmap <leader>o :Gbrowse<cr>
 
 " Fast editing of the .vimrc file
-map <leader>e :e! ~/.nvimrc<cr>
+map <leader>e :e! ~/.vimrc<cr>
 
 " Whem vimrc is edited, reload it
-autocmd! bufwritepost vimrc source ~/.nvimrc
+autocmd! bufwritepost vimrc source ~/.vimrc
+
+" Close buffer
+map <leader>c :bdelete<cr>
 
 " set 7 lines to the cursors - when moving vertical.
 set so=7
@@ -209,7 +229,7 @@ au BufNewFile,BufRead *_steps.rb set filetype=cucumber
 autocmd FileType c,cpp,java,php,ruby,scss,feature,python,haml,javascript,scss autocmd BufWritePre <buffer> :%s/\s\+$//e
 
 " Highlight trailing whitespace
-match LongLineWarning /\s\+$/
+" match LongLineWarning /\s\+$/
 
 " Inser New Line **************************************************************
 map <S-Enter> O<ESC> " awesome, inserts new line without going into insert mode
@@ -294,44 +314,41 @@ endif
 " |                               Plugins                                     |
 " -----------------------------------------------------------------------------
 " -----------------------------------------------------------------------------
-call plug#begin('~/.nvim/plugged')
+call plug#begin('~/.vim/plugged')
 
-Plug 'Raimondi/delimitMate'
+" Unused theme plugins
+" Plug 'gilgigilgil/anderson.vim'
+" Plug 'gosukiwi/vim-atom-dark'
+
+" Plug 'Raimondi/delimitMate'
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+Plug 'ervandew/supertab' 
 Plug 'godlygeek/tabular' | Plug 'plasticboy/vim-markdown'
+Plug 'jiangmiao/auto-pairs'
 Plug 'jtratner/vim-flavored-markdown'
 Plug 'kien/ctrlp.vim'
 Plug 'rking/ag.vim'
+Plug 'mattn/emmet-vim'
+Plug 'mattn/vim-rubyfmt'
 Plug 'scrooloose/syntastic'
+Plug 'thoughtbot/vim-rspec'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
 
+Plug 'elmcast/elm-vim', { 'for': 'elm' }
 Plug 'fatih/vim-go', { 'for': 'go' }
+Plug 'lambdatoast/elm.vim', { 'for': 'elm'}
 Plug 'tpope/vim-cucumber', { 'for': 'cucumber' }
 Plug 'tpope/vim-haml', { 'for': 'haml' }
+Plug 'tpope/vim-endwise', { 'for': 'ruby' }
 Plug 'tpope/vim-rails', { 'for': 'ruby' }
 Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
 
-
 call plug#end()
-
-
-" DWM settings **************************************************************
-let g:dwm_master_pane_width=95
-
-" NERDTree ********************************************************************
-:noremap <leader>n :NERDTreeToggle<CR>
-
-" User instead of Netrw when doing an edit /foobar
-let NERDTreeHijackNetrw=1
-
-" Single click for everything
-let NERDTreeMouseMode=1
-
-" use old school tree indicators w/o unicode
-let g:NERDTreeDirArrows=0
 
 " autocomplpop ***************************************************************
 " complete option
@@ -351,9 +368,6 @@ let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
       \ --ignore .DS_Store
       \ -g ""'
 
-" AutoScrollMode ***********************************************************
-noremap <leader>. :call AutoScrollMode()<CR>
-
 " -----------------------------------------------------------------------------
 " |                               Syntastic                                   |
 " -----------------------------------------------------------------------------
@@ -362,29 +376,8 @@ let g:syntastic_echo_current_error=0
 let g:syntastic_auto_jump=1
 let g:syntastic_auto_loc_list_height=3
 let g:syntastic_auto_loc_list=1
-let g:syntastic_mode_map = { 'passive_filetypes': ['html', 'cucumber', 'cpp'], 'mode': 'active' }
-let g:syntastic_ruby_mri_exe= "~/.rbenv/versions/2.2.2/bin/ruby"
-
-" -----------------------------------------------------------------------------
-" |                               ack.vim                                     |
-" -----------------------------------------------------------------------------
-let g:ackprg = 'ag --nogroup --nocolor --column'
-
-" -----------------------------------------------------------------------------
-" |                             easybuffer.vim                                |
-" -----------------------------------------------------------------------------
-noremap <leader>f :EasyBuffer<CR>
-
-" -----------------------------------------------------------------------------
-" |                                HARD MODE                                  |
-" -----------------------------------------------------------------------------
-"autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
-
-" -----------------------------------------------------------------------------
-" |                                 DISPATCH                                  |
-" -----------------------------------------------------------------------------
-nnoremap <F4> :Dispatch!<CR>
-nnoremap <F3> :Dispatch<CR>
+let g:syntastic_mode_map = { 'passive_filetypes': ['html', 'cucumber', 'cpp', 'javascript'], 'mode': 'active' }
+let g:syntastic_ruby_mri_exe= "~/.rbenv/shims/ruby"
 
 " -----------------------------------------------------------------------------
 " |                                Vim Rspec                                  |
@@ -424,6 +417,9 @@ au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
 " Show interfaces implemented under cursor
 au FileType go nmap <Leader>s <Plug>(go-implements)
 
+" Switch to declarations in directory
+au FileType go nmap <Leader>d :GoDeclsDir<CR>
+
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
@@ -431,3 +427,17 @@ let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 
 let g:go_fmt_command = "goimports"
+
+
+" -----------------------------------------------------------------------------
+" |                             vim-rubyfmt                                   |
+" -----------------------------------------------------------------------------
+let g:rubyfmt_autoopen = 1
+
+" -----------------------------------------------------------------------------
+" |                               elm-vim                                     |
+" -----------------------------------------------------------------------------
+" let g:elm_detailed_complete = 1
+let g:elm_format_autosave = 1
+" let g:elm_make_show_warnings = 1
+:au BufWritePost *.elm ElmMakeMain
