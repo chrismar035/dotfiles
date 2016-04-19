@@ -1,0 +1,7 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =5
+let g:netrw_dirhist_1='/Users/chrismar035/workspace/mobile_defense/switchboard/config'
+let g:netrw_dirhist_2='/Users/chrismar035/workspace/mobile_defense/troubleshooting_content/doc'
+let g:netrw_dirhist_3='/Users/chrismar035/workspace/react/voting-client/src'
+let g:netrw_dirhist_4='/Users/chrismar035/workspace/mobile_defense/server_core'
+let g:netrw_dirhist_5='/Users/chrismar035/workspace/go/src/gitlab.com/codegoalie/parks-auth/deploy'
