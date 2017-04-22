@@ -27,6 +27,9 @@ alias mmv="noglob zmv -W"
 
 alias sw='cd ~/Dropbox/soy_wiki; soywiki'
 
+alias gow='cd ~/workspace/go/src/github.com/chrismar035'
+alias gol='cd ~/workspace/go/src/gitlab.com/codegoalie'
+
 # Add an "alert" alias for long running commands. Use like so:
 # sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || \
