@@ -38,7 +38,7 @@
   # order branches by last commit date
   latest  = "for-each-ref --sort=-committerdate --format='%(committerdate:short) %(refname:short) [%(committername)]'"
   # two days of commits
-  standup = "log --since '2 days ago' --oneline --author chris@chrismar035.com"
+  standup = "log --since '2 days ago' --oneline --author chris@codegoalie.com"
   # commit
   c       = commit --verbose
   # commit all modified files (doesn't do untracked)
@@ -147,7 +147,8 @@
 # me, myself
 [user]
   name  = Chris Marshall
-  email = chris@chrismar035.com
+  email = chris@codegoalie.com
+	signingkey = 6AC913F0
 # help me with conflicts
 [merge]
   tool = diffconflicts
@@ -163,7 +164,7 @@
   autosquash = true
   autostash = true
 [github]
-  user = chrismar035
+  user = codegoalie
 [mergetool "diffconflicts"]
   cmd = diffconflicts vim $BASE $LOCAL $REMOTE $MERGED
   trustExitCode = true
