@@ -21,6 +21,8 @@
   commitmsgwidth = 50
   gcwarning = false
 [alias]
+  # Avoid diff-so-fancy for actual diffs in the diff format
+  patch = !git --no-pager diff
   # Commit first; rebase later
   save    = !git add -A && git commit -m 'SAVEPOINT'
   wip     = !git add -u && git commit -m "WIP"
