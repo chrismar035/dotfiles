@@ -15,3 +15,4 @@ vim_configs/*
 what_was_i_doing.md
 z
 .nvim/plugged/*
+.bundle/cache/*
