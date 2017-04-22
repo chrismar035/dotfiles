@@ -50,6 +50,9 @@ alias de='eval "$(docker-machine env dinghy)"'
 alias dc='docker-compose'
 alias dcr='docker-compose run'
 alias cleanup_docker='docker rm $(docker ps -a -q); docker rmi $(docker images | grep "^<none>" | awk "{print $3}")'
+alias drails='docker-compose run web rails'
+alias drake='docker-compose run web rake'
+alias drspec='docker-compose run web rspec'
 
 # extract most known types of archives
 extract () {
@@ -77,4 +80,3 @@ extract () {
 function mcd() {
   mkdir -p "$1" && cd "$1";
 }
-
