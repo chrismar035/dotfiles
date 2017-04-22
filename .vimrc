@@ -318,7 +318,7 @@ map E ge
 "compiler ruby         " Enable compiler support for ruby
 map <F5> :!ruby %<CR>
 
-autocmd FileType ruby let b:dispatch = 'zeus rspec %'
+autocmd FileType ruby let b:dispatch = 'rspec %'
 
 
 " Omni Completion *************************************************************
@@ -450,7 +450,6 @@ au FileType ruby map <Leader>r :call RunCurrentSpecFile()<CR>
 au FileType ruby map <Leader>h :call RunNearestSpec()<CR>
 au FileType ruby map <Leader>l :call RunLastSpec()<CR>
 au FileType ruby map <Leader>a :call RunAllSpecs()<CR>
-let g:rspec_command = "compiler rspec | set makeprg=zeus | Make rspec {spec}"
 
 " -----------------------------------------------------------------------------
 " |                                UltiSnips                                   |
@@ -487,3 +486,8 @@ let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 
 let g:go_fmt_command = "goimports"
+
+" -----------------------------------------------------------------------------
+" |                             emmet-vim                                     |
+" -----------------------------------------------------------------------------
+let g:user_emmet_leader_key='<C-Z>'
