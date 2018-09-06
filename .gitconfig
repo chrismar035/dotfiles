@@ -3,7 +3,7 @@
   bare                     = false
   #be sure to get all refs for reflog
   logallrefupdates         = true
-  editor                   = vim
+  editor                   = nvim
   # personal default .gitignore
   excludesfile = /Users/chrismar035/.gitignore_global
   # disable wrapping in less paginated deff and logs
@@ -26,7 +26,8 @@
   # Commit first; rebase later
   save    = !git add -A && git commit -m 'SAVEPOINT'
   wip     = !git add -u && git commit -m "WIP"
-  undo    = reset HEAD~1 --mixed
+  back    = reset HEAD~1
+  b       = reset HEAD~1
   # Edit config file
   ec      = config --global -e
   # Single line log
@@ -57,6 +58,8 @@
   # checkout
   co      = checkout
   com     = checkout master
+  # checkout new story (a custom command I wrote to check branches by YouTrack IDs)
+  cos     = checkout-story
   # new branch
   cob     = checkout -b
   # short syntax for working directory status
@@ -106,6 +109,8 @@
   pm      = "!f() { git checkout master && git pull && git sweep; }; f"
   # push new branch and track
   po      = push -u origin
+  # push tags
+  pt      = push --tags
   # pull
   l       = pull
   # cherry pick
@@ -168,7 +173,7 @@
 [github]
   user = codegoalie
 [mergetool "diffconflicts"]
-  cmd = diffconflicts vim $BASE $LOCAL $REMOTE $MERGED
+  cmd = diffconflicts nvim $BASE $LOCAL $REMOTE $MERGED
   trustExitCode = true
   keepBackup = false
 [difftool "sourcetree"]
