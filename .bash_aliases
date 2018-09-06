@@ -2,6 +2,8 @@ alias la='ls -a'
 alias lla='ll -a'
 alias make='make -j4'
 
+alias vim=nvim
+
 alias g='nocorrect git'
 alias gp='git push'
 alias gl='git pull'
@@ -53,6 +55,9 @@ alias cleanup_docker='docker rm $(docker ps -a -q); docker rmi $(docker images |
 alias drails='docker-compose run web rails'
 alias drake='docker-compose run web rake'
 alias drspec='docker-compose run web rspec'
+
+# Time tracking
+alias tweek='t display --start $(date -d "-7 days" "+%Y-%m-%d") --end $(date -d "-1 day" "+%Y-%m-%d")'
 
 # extract most known types of archives
 extract () {
