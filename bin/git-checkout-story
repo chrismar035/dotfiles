@@ -1,9 +1,0 @@
-#!/bin/bash
-
-if [ -z "$1" ]
-then
-  echo "Please provide a story number, like c-1234"
-  exit 1
-fi
-
-git branch -a | grep $1 | head -1 | sed s/remotes\\/origin\\/// | xargs git co
