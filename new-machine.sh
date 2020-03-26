@@ -19,6 +19,7 @@ sudo apt-get install -y \
 
 # tmux
 ./setup/tmux/install.sh
+./setup/tmux/configure.sh
 
 # NeoVIM
 ./setup/neovim/install.sh
