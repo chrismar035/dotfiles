@@ -305,9 +305,6 @@ call plug#begin('~/.vim/plugged')
 " Colors
 Plug 'tristen/superman'
 
-" Mergetool
-Plug 'whiteinge/diffconflicts'
-
 " Markdown
 Plug 'godlygeek/tabular' | Plug 'plasticboy/vim-markdown'
 Plug 'jtratner/vim-flavored-markdown'
@@ -317,16 +314,19 @@ Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 
 " Editing
 Plug 'jiangmiao/auto-pairs'
-
-" HTML
-Plug 'mattn/emmet-vim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'justinmk/vim-sneak'
 Plug 'machakann/vim-sandwich'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+
+" HTML
+Plug 'mattn/emmet-vim'
 
 " Git 
 Plug 'tpope/vim-fugitive'
+Plug 'whiteinge/diffconflicts'
 
 " Go
 Plug 'fatih/vim-go', { 'for': 'go' }
@@ -354,25 +354,11 @@ let g:AutoComplPop_IgnoreCaseOption = 0
 let g:AutoComplPop_BehaviorKeywordLength = 2
 
 
-" Ctrl-P *******************************************************************
-noremap <leader>j :CtrlPMixed<cr>
-let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
-      \ --ignore .git
-      \ --ignore .svn
-      \ --ignore .hg
-      \ --ignore .DS_Store
-      \ -g ""'
-
 " -----------------------------------------------------------------------------
-" |                               Syntastic                                   |
+" |                                  fzf                                      |
 " -----------------------------------------------------------------------------
-let g:syntastic_check_on_open=1
-let g:syntastic_echo_current_error=0
-let g:syntastic_auto_jump=1
-let g:syntastic_auto_loc_list_height=3
-let g:syntastic_auto_loc_list=1
-let g:syntastic_mode_map = { 'passive_filetypes': ['html', 'cucumber', 'cpp', 'javascript'], 'mode': 'active' }
-let g:syntastic_ruby_mri_exe= "~/.rbenv/shims/ruby"
+noremap <leader>j :Files<cr>
+let g:fzf_buffers_jump = 1
 
 " -----------------------------------------------------------------------------
 " |                                Vim Rspec                                  |
