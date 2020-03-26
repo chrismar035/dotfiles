@@ -4,8 +4,6 @@
   #be sure to get all refs for reflog
   logallrefupdates         = true
   editor                   = nvim
-  # personal default .gitignore
-  excludesfile = /Users/chrismar035/.gitignore_global
   # disable wrapping in less paginated deff and logs
   pager = diff-so-fancy | less --tabs=1,5 -R
 #defaults for any master branches
@@ -119,6 +117,12 @@
   mnff    = merge --no-ff
   # mergetool
   mt = mergetool
+[core "pull"]
+  rebase = true
+[rebase]
+  stat = true
+  autosquash = true
+  autostash = true
 [push]
   # push only current branch to its upstream unless specified
   default = upstream
@@ -156,29 +160,16 @@
   name  = Chris Marshall
   email = chris@codegoalie.com
 	signingkey = 6AC913F0
+[github]
+  user = codegoalie
 # help me with conflicts
 [merge]
   tool = diffconflicts
-[mergetool "diffmerge"]
-  cmd = diffmerge --merge --result=$MERGED $LOCAL $BASE $REMOTE
-  trustExitCode = false
 [mergetool]
   keepBackup = false
-[core "pull"]
-  rebase = true
-[rebase]
-  stat = true
-  autosquash = true
-  autostash = true
-[github]
-  user = codegoalie
 [mergetool "diffconflicts"]
-  cmd = diffconflicts nvim $BASE $LOCAL $REMOTE $MERGED
+  cmd = nvim -c DiffConflicts "$MERGED" "$BASE" "$LOCAL" "$REMOTE"
   trustExitCode = true
   keepBackup = false
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
-[mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
+[url "ssh://git@github.com/"]
+	insteadOf = https://github.com/
