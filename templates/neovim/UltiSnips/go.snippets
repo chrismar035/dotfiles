@@ -1,0 +1,31 @@
+snippet bufact "Handler func for Buffalo" b
+// $1 $2
+func ${1}(c buffalo.Context) error {
+	$3
+
+	return c.Render(http.StatusOK, r.HTML("$4"))
+}
+endsnippet
+
+snippet rerr "Request level error reporting to Rollbar"
+if err != nil {
+	err = fmt.Errorf("failed to $1: %w", err)
+	rollbar.Error(err)
+	return err
+}
+endsnippet
+
+snippet err "Error wrapping"
+if err != nil {
+	err = fmt.Errorf("failed tok $1: %w", err)
+	return err
+}
+endsnippet
+
+snippet tx "Get transaction from Buffalo context" b
+tx := c.Value("tx").(*pop.Connection)
+endsnippet
+
+snippet currU "Get current user from Buffalo context" b
+currentUser := c.Value("current_user").(*models.User)
+endsnippet
