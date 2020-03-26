@@ -38,3 +38,4 @@ sudo apt-get install -y \
 # gcloud 
 ./setup/gcloud/install.sh
 
+# autojump
