@@ -2,4 +2,4 @@
 
 set -e
 
-ls -s ~/.local/dotfiles/templates/tmux/.tmux.conf ~/.tmux.conf
+ln -s ~/.local/dotfiles/templates/tmux/.tmux.conf ~/.tmux.conf
