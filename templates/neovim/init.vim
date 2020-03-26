@@ -302,36 +302,43 @@ call plug#begin('~/.vim/plugged')
 " Plug 'gilgigilgil/anderson.vim'
 " Plug 'gosukiwi/vim-atom-dark'
 
+" Colors
 Plug 'tristen/superman'
+
+" Mergetool
 Plug 'whiteinge/diffconflicts'
 
-" Plug 'Raimondi/delimitMate'
-Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
-Plug 'ervandew/supertab' 
+" Markdown
 Plug 'godlygeek/tabular' | Plug 'plasticboy/vim-markdown'
-Plug 'jiangmiao/auto-pairs'
 Plug 'jtratner/vim-flavored-markdown'
-Plug 'kien/ctrlp.vim'
-Plug 'rking/ag.vim'
-Plug 'mattn/emmet-vim'
-Plug 'mattn/vim-rubyfmt'
-Plug 'scrooloose/syntastic'
-Plug 'thoughtbot/vim-rspec'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-dispatch'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-unimpaired'
 
-Plug 'elmcast/elm-vim', { 'for': 'elm' }
+" Snippets
+Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+
+" Editing
+Plug 'jiangmiao/auto-pairs'
+
+" HTML
+Plug 'mattn/emmet-vim'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-repeat'
+Plug 'justinmk/vim-sneak'
+Plug 'machakann/vim-sandwich'
+
+" Git 
+Plug 'tpope/vim-fugitive'
+
+" Go
 Plug 'fatih/vim-go', { 'for': 'go' }
-Plug 'lambdatoast/elm.vim', { 'for': 'elm'}
-Plug 'tpope/vim-cucumber', { 'for': 'cucumber' }
-Plug 'tpope/vim-haml', { 'for': 'haml' }
+
+" Ruby
 Plug 'tpope/vim-endwise', { 'for': 'ruby' }
 Plug 'tpope/vim-rails', { 'for': 'ruby' }
 Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
+Plug 'mattn/vim-rubyfmt', { 'for': 'ruby' }
+Plug 'thoughtbot/vim-rspec', { 'for': 'ruby' }
+Plug 'tpope/vim-haml', { 'for': 'haml' }
+Plug 'tpope/vim-cucumber', { 'for': 'cucumber' }
 
 call plug#end()
 
