@@ -47,3 +47,12 @@ sudo apt-get install -y \
 ./setup/gcloud/install.sh
 
 # autojump
+# peek - gif recording
+# flameshot
+# copyq
+# keybase
+# OBS
+# Zoom
+# alacritty
+# Firefox
+# Firefox dev
