@@ -115,6 +115,7 @@
   cp      = cherry-pick
   # Merge a branch without fastforward
   mnff    = merge --no-ff
+  mm      = merge --no-edit --no-ff
   # mergetool
   mt = mergetool
 [core "pull"]
