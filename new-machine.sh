@@ -37,6 +37,7 @@ sudo apt-get install -y \
 # gopass
 ./setup/gopass/install.sh
 # NOTE: keybase private folder has the gopass keys
+# Also note: I don't know how to get browserpass working again
 ./setup/browserpass/install.sh
 
 # Docker
