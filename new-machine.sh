@@ -24,6 +24,9 @@ sudo apt-get install -y \
 ./setup/tmux/install.sh
 ./setup/tmux/configure.sh
 
+# Ruby (via rbenv)
+./setup/ruby/install.sh
+
 # NeoVIM
 ./setup/neovim/install.sh
 ./setup/neovim/configure.sh
