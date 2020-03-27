@@ -26,6 +26,7 @@ sudo apt-get install -y \
 
 # NeoVIM
 ./setup/neovim/install.sh
+./setup/neovim/configure.sh
 
 # wget
 ./setup/wget/install.sh
