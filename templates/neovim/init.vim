@@ -24,13 +24,13 @@ set expandtab
 set wildmenu
 set wildmode=longest,list:longest
 
-set backup
-set backupdir=~/vim-backup
-set dir=~/vim-swap
+set nobackup
+set backupdir=$HOME/.config/nvim/vim-backup
+set dir=$HOME/.config/nvim/vim-swap
 
 " Persistent undo
 set undofile
-set undodir=$HOME/.vim-undo
+set undodir=$HOME/.config/nvim/.vim-undo
 set undolevels=1000
 set undoreload=10000
 set hidden
