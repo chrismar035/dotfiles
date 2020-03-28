@@ -2,6 +2,8 @@
 
 set -e
 
+mkdir ~/bin
+
 ln -s ~/.local/dotfiles/templates/bashrc.d ~/.local/bashrc.d
 ln -s ~/.local/dotfiles/templates/profile.d ~/.local/profile.d
 
