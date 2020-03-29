@@ -25,8 +25,7 @@ set wildmenu
 set wildmode=longest,list:longest
 
 set nobackup
-set backupdir=$HOME/.config/nvim/vim-backup
-set dir=$HOME/.config/nvim/vim-swap
+set nowritebackup
 
 " Persistent undo
 set undofile
