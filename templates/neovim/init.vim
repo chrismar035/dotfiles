@@ -37,9 +37,6 @@ set hidden
 " limit syntax highlighting to 120 chars
 set synmaxcol=120
 
-" Spelling ********************************************************************
-" Toggle spell checking
-map <leader>s :setlocal spell! spelllang=en_us<CR>
 
 " Indenting *******************************************************************
 set ai " Automatically set the indent of a new line (local to buffer)
@@ -109,8 +106,8 @@ let @p = 'f,al'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Spell checking
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"Pressing ,ss will toggle and untoggle spell checking
-map <leader>ss :setlocal spell!<cr>
+"Pressing ,s will toggle and untoggle spell checking
+map <leader>s :setlocal spell! spelllang=en_us<CR>
 
 "Shortcuts using <leader>
 map <leader>sn "s
@@ -174,7 +171,7 @@ map <leader>e :e! $MYVIMRC<cr>
 autocmd! bufwritepost $MYVIMRC source $MYVIMRC
 
 " Close buffer
-map <leader>c :bdelete<cr>
+map <leader>q :bdelete<cr>
 
 " set 7 lines to the cursors - when moving vertical.
 set so=7
@@ -319,6 +316,7 @@ Plug 'justinmk/vim-sneak'
 Plug 'machakann/vim-sandwich'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " HTML
 Plug 'mattn/emmet-vim'
@@ -357,6 +355,7 @@ let g:AutoComplPop_BehaviorKeywordLength = 2
 " |                                  fzf                                      |
 " -----------------------------------------------------------------------------
 noremap <leader>j :Files<cr>
+noremap gb :Buffers<cr>
 let g:fzf_buffers_jump = 1
 
 " -----------------------------------------------------------------------------
@@ -372,7 +371,7 @@ let g:rspec_command = "compiler rspec | set makeprg=zeus | Make rspec {spec}"
 " -----------------------------------------------------------------------------
 " |                                UltiSnips                                   |
 " -----------------------------------------------------------------------------
-let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsExpandTrigger="<leader>u"
 let g:UltiSnipsJumpForwardTrigger="<c-a>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
@@ -415,10 +414,40 @@ let g:go_fmt_command = "goimports"
 let g:rubyfmt_autoopen = 1
 
 " -----------------------------------------------------------------------------
-" |                               elm-vim                                     |
+" |                               coc-vim                                     |
 " -----------------------------------------------------------------------------
-" let g:elm_detailed_complete = 1
-let g:elm_format_autosave = 1
-" let g:elm_make_show_warnings = 1
-:au BufWritePost *.elm ElmMakeMain
+" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
+" delays and poor user experience.
+set updatetime=300
 
+" Don't pass messages to |ins-completion-menu|.
+set shortmess+=c
+
+" Use tab for trigger completion with characters ahead and navigate.
+" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
+" other plugin before putting this into your config.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Use <c-space> to trigger completion.
+" inoremap <silent><expr> <c-space> coc#refresh()
+
+" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
+" position. Coc only does snippet and additional edit on confirm.
+" if has('patch8.1.1068')
+"   " Use `complete_info` if your (Neo)Vim version supports it.
+"   inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+" else
+"   imap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+" endif
+
+" Highlight the symbol and its references when holding the cursor.
+autocmd CursorHold * silent call CocActionAsync('highlight')
