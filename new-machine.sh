@@ -63,3 +63,4 @@ sudo apt-get install -y \
 # alacritty
 # Firefox
 # Firefox dev
+# kubectrl
