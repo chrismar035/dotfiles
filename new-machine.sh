@@ -27,6 +27,8 @@ sudo apt-get install -y \
 # Ruby (via rbenv)
 ./setup/ruby/install.sh
 
+# Node (via nvm)
+
 # NeoVIM
 ./setup/neovim/install.sh
 ./setup/neovim/configure.sh
