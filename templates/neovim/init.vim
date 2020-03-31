@@ -390,8 +390,7 @@ au FileType go nmap <leader>t <Plug>(go-test)
 au FileType go nmap <leader>c <Plug>(go-coverage)
 au FileType go nmap <leader>v <Plug>(go-vet)
 
-au FileType go nmap <Leader>gd <Plug>(go-doc)
-au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
+au FileType go nmap <Leader>gd <Plug>(go-def)
 
 " Show interfaces implemented under cursor
 au FileType go nmap <Leader>s <Plug>(go-implements)
@@ -406,7 +405,6 @@ let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 
 let g:go_fmt_command = "goimports"
-
 
 " -----------------------------------------------------------------------------
 " |                             vim-rubyfmt                                   |
