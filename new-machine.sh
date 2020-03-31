@@ -52,6 +52,8 @@ sudo apt-get install -y \
 ./setup/gcloud/install.sh
 
 # autojump
+./setup/autojump/install.sh
+
 # peek - gif recording
 # flameshot
 # copyq
