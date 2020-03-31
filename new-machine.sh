@@ -15,6 +15,7 @@ sudo apt-get install -y \
 ./setup/oh-my-zsh/configure.sh
 
 # Shell settings
+./setup/shell/install.sh
 ./setup/shell/configure.sh
 
 # ssh-keys and github
