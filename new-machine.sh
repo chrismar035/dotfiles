@@ -20,6 +20,9 @@ sudo apt-get install -y \
 # ssh-keys and github
 ./setup/github/configure.sh
 
+# Keybase
+./setup/keybase/install.sh
+
 # tmux
 ./setup/tmux/install.sh
 ./setup/tmux/configure.sh
