@@ -55,6 +55,9 @@ sudo apt-get install -y \
 # autojump
 ./setup/autojump/install.sh
 
+# kubectrl
+./setup/kubectl/install.sh
+
 # peek - gif recording
 # flameshot
 # copyq
@@ -64,4 +67,3 @@ sudo apt-get install -y \
 # alacritty
 # Firefox
 # Firefox dev
-# kubectrl
