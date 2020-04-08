@@ -2,4 +2,4 @@
 
 set -e
 
-sudo apt-get install wget
+sudo apt-get install -y wget
