@@ -10,6 +10,9 @@ sudo apt-get install -y \
 #git
 ./setup/git/configure.sh
 
+# ssh-keys and github
+# ./setup/github/configure.sh
+
 # Oh my Zsh
 ./setup/oh-my-zsh/install.sh
 ./setup/oh-my-zsh/configure.sh
@@ -18,8 +21,8 @@ sudo apt-get install -y \
 ./setup/shell/install.sh
 ./setup/shell/configure.sh
 
-# ssh-keys and github
-./setup/github/configure.sh
+# homebrew
+./setup/homebrew/install.sh
 
 # Keybase
 ./setup/keybase/install.sh
