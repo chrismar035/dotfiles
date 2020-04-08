@@ -10,6 +10,14 @@ endsnippet
 snippet rerr "Request level error reporting to Rollbar"
 if err != nil {
 	err = fmt.Errorf("failed to $1: %w", err)
+	rollbar.RequestError(rollbar.ERR, c.Request(), err)
+	return err
+}
+endsnippet
+
+snippet berr "Buffalo error wrapping"
+if err != nil {
+	err = fmt.Errorf("failed to $1: %w", err)
 	rollbar.Error(err)
 	return err
 }
@@ -17,7 +25,7 @@ endsnippet
 
 snippet err "Error wrapping"
 if err != nil {
-	err = fmt.Errorf("failed tok $1: %w", err)
+	err = fmt.Errorf("failed to $1: %w", err)
 	return err
 }
 endsnippet
