@@ -49,22 +49,23 @@ sudo apt-get install -y \
 # Also note: I don't know how to get browserpass working again
 ./setup/browserpass/install.sh
 
-# Docker
 # Go
-# Postgresql-client
-# gcloud 
-./setup/gcloud/install.sh
+./setup/go/install.sh 1.14.1
 
 # autojump
 ./setup/autojump/install.sh
 
+# gcloud
+./setup/gcloud/install.sh
+
 # kubectrl
 ./setup/kubectl/install.sh
 
+# Docker
+# Postgresql-client
 # peek - gif recording
 # flameshot
 # copyq
-# keybase
 # OBS
 # Zoom
 # alacritty
