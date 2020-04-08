@@ -2,6 +2,7 @@
 
 set -e
 
+mkdir -p ~/bin
 wget https://raw.githubusercontent.com/so-fancy/diff-so-fancy/master/third_party/build_fatpack/diff-so-fancy \
   -O ~/bin/diff-so-fancy
 chmod +x ~/bin/diff-so-fancy
