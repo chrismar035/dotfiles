@@ -35,6 +35,7 @@ sudo apt-get install -y \
 ./setup/ruby/install.sh
 
 # Node (via nvm)
+./setup/node/install.sh
 
 # NeoVIM
 ./setup/neovim/install.sh
