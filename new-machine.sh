@@ -51,7 +51,7 @@ sudo apt-get install -y \
 ./setup/browserpass/install.sh
 
 # Go
-./setup/go/install.sh 1.14.1
+./setup/go/install.sh 1.14.2
 
 # autojump
 ./setup/autojump/install.sh
