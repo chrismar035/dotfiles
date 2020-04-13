@@ -99,10 +99,10 @@ endfunction
 let @h = 'F:xel2xr:'
 "
 " Wrap this line at 80 chars
-let @w = 'g080lF i'
+let @w = 'g080lF i'
 
 " Wrap method parameters
-let @p = 'f,al'
+let @p = 'f,a'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Spell checking
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
