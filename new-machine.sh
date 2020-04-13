@@ -5,7 +5,8 @@ set -e
 # Packages
 sudo apt-get install -y \
   python3 python3-dev \
-  python python-dev
+  python python-dev \
+  curl
 
 #git
 ./setup/git/configure.sh
