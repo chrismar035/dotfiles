@@ -7,10 +7,10 @@ set -e
 # chmod u+x ~/bin/nvim
 # sudo add-apt-repository ppa:neovim-ppa/stable
 # sudo apt update
+# sudo apt intall neovim
 
 brew install neovim
 sudo apt install -y \
-  # neovim \
   python-pip python3-pip
 pip install pynvim
 pip3 install pynvim
