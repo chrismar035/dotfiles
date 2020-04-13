@@ -45,14 +45,14 @@ sudo apt-get install -y \
 # wget
 ./setup/wget/install.sh
 
+# Go
+./setup/go/install.sh 1.14.2
+
 # gopass
 ./setup/gopass/install.sh
 # NOTE: keybase private folder has the gopass keys
 # Also note: I don't know how to get browserpass working again
 ./setup/browserpass/install.sh
-
-# Go
-./setup/go/install.sh 1.14.2
 
 # autojump
 ./setup/autojump/install.sh
