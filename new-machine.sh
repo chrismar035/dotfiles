@@ -69,7 +69,9 @@ sudo apt-get install -y \
 # alacritty
 ./setup/alacritty/install.sh
 
-# Docker
+# Docker (podman) / compose
+./setup/docker/install.sh
+
 # Postgresql-client
 # peek - gif recording
 # flameshot
