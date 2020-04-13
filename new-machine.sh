@@ -63,6 +63,12 @@ sudo apt-get install -y \
 # kubectrl
 ./setup/kubectl/install.sh
 
+# rust
+./setup/rust/install.sh
+
+# alacritty
+./setup/alacritty/install.sh
+
 # Docker
 # Postgresql-client
 # peek - gif recording
@@ -70,6 +76,5 @@ sudo apt-get install -y \
 # copyq
 # OBS
 # Zoom
-# alacritty
 # Firefox
 # Firefox dev
