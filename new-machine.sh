@@ -76,6 +76,8 @@ sudo apt-get install -y \
 ./setup/copyq/install.sh
 
 # Postgresql-client
+./setup/postgres/install.sh
+
 # peek - gif recording
 # flameshot
 # OBS
