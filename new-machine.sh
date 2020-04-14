@@ -72,10 +72,12 @@ sudo apt-get install -y \
 # Docker (podman) / compose
 ./setup/docker/install.sh
 
+# copyq
+./setup/copyq/install.sh
+
 # Postgresql-client
 # peek - gif recording
 # flameshot
-# copyq
 # OBS
 # Zoom
 # Firefox
