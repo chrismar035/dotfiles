@@ -79,6 +79,8 @@ sudo apt-get install -y \
 ./setup/postgres/install.sh
 
 # peek - gif recording
+./setup/peek/install.sh
+
 # flameshot
 # OBS
 # Zoom
