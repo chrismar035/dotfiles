@@ -14,6 +14,7 @@ set viminfo='100,f1
 
 " Prevent that q window thingy
 map q: :q
+noremap Q @@
 
 " Use 2 spaces
 set softtabstop=2
