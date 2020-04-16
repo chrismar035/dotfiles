@@ -207,9 +207,6 @@ au BufNewFile,BufRead *_steps.rb set filetype=cucumber
 " Strip trailing whitespace from certain file types
 autocmd FileType c,cpp,java,php,ruby,scss,feature,python,haml,javascript,scss autocmd BufWritePre <buffer> :%s/\s\+$//e
 
-" Highlight trailing whitespace
-" match LongLineWarning /\s\+$/
-
 " Inser New Line **************************************************************
 map <S-Enter> O<ESC> " awesome, inserts new line without going into insert mode
 map <Enter> o<ESC>
