@@ -1,0 +1,16 @@
+snippet freact "" b
+import React from "react";
+import proptypes from "prop-types";
+
+const ${1:Component} = props => {
+	return (
+	  <div>$0</div>
+	)
+}
+
+$1.propTypes = {
+	$2
+};
+
+export default $1;
+endsnippet
