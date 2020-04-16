@@ -68,6 +68,11 @@ sudo apt-get install -y \
 
 # alacritty
 ./setup/alacritty/install.sh
+./setup/alacritty/configure.sh
+
+# Hyper.app
+./setup/hyper/install.sh
+./setup/hyper/configure.sh
 
 # Docker (podman) / compose
 ./setup/docker/install.sh
