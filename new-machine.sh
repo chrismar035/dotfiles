@@ -86,6 +86,10 @@ sudo apt-get install -y \
 # peek - gif recording
 ./setup/peek/install.sh
 
+# texpander
+./setup/texpander/install.sh
+./setup/texpander/configure.sh
+
 # flameshot
 # OBS
 # Zoom
