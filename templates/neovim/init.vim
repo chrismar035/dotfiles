@@ -122,6 +122,7 @@ if $COLORTERM == 'gnome-terminal'
   set t_Co=256
 endif
 set background=dark
+set termguicolors
 syntax on " syntax highlighting
 syntax sync minlines=256
 set synmaxcol=300
@@ -303,7 +304,8 @@ call plug#begin('~/.vim/plugged')
 " Plug 'gosukiwi/vim-atom-dark'
 
 " Colors
-Plug 'tristen/superman'
+" Plug 'tristen/superman'
+Plug 'tyrannicaltoucan/vim-deep-space'
 
 " Markdown
 Plug 'godlygeek/tabular' | Plug 'plasticboy/vim-markdown'
@@ -348,7 +350,8 @@ Plug 'tpope/vim-cucumber', { 'for': 'cucumber' }
 call plug#end()
 
 " colors *********************************************************************
-colorscheme superman
+" colorscheme superman
+colorscheme deep-space
 
 " autocomplpop ***************************************************************
 " complete option
