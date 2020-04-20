@@ -333,7 +333,7 @@ Plug 'prettier/vim-prettier', {
 " HTML
 Plug 'mattn/emmet-vim'
 
-" Git 
+" Git
 Plug 'tpope/vim-fugitive'
 Plug 'whiteinge/diffconflicts'
 
