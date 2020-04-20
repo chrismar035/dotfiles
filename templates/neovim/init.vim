@@ -465,6 +465,8 @@ endfunction
 " Highlight the symbol and its references when holding the cursor.
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
+let g:coc_global_extensions = [ 'coc-css', 'coc-emmet', 'coc-html', 'coc-json', 'coc-svg', 'coc-yank', 'coc-prettier' ]
+
 " -----------------------------------------------------------------------------
 " |                              vim-prettier                                  |
 " -----------------------------------------------------------------------------
