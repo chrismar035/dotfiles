@@ -60,7 +60,8 @@ set cursorline
 " Searching *******************************************************************
 set hlsearch  " highlight search
 set incsearch  " incremental search, search as you type
-set ignorecase " Ignore case when searching 
+set inccommand=nosplit " incremental search/replace
+set ignorecase " Ignore case when searching
 set smartcase " Ignore case when searching lowercase
 " Remove current search highlighting
 noremap <leader><space> :noh<CR>
