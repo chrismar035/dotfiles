@@ -323,6 +323,7 @@ Plug 'machakann/vim-sandwich'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'ntpeters/vim-better-whitespace'
 
 Plug 'prettier/vim-prettier', {
   \ 'do': 'npm install',
@@ -470,3 +471,10 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 let g:prettier#autoformat = 1
 let g:prettier#autoformat_require_pragma = 0
 let g:prettier#exec_cmd_async = 1
+
+" -----------------------------------------------------------------------------
+" |                         vim-better-whitespace                             |
+" -----------------------------------------------------------------------------
+let g:better_whitespace_enabled=1
+let g:strip_whitespace_on_save=1
+let g:strip_whitelines_at_eof=1
