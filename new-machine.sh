@@ -96,3 +96,4 @@ sudo apt-get install -y \
 # Zoom
 # Firefox
 # Firefox dev
+# Playball https://github.com/paaatrick/playball
