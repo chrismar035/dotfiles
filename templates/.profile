@@ -3,3 +3,9 @@ source ~/.bashrc
 for FN in $HOME/.local/profile.d/*.sh ; do
   source "$FN"
 done
+
+# use this for timing info
+# { time (
+#   echo $FN
+#   source "$FN"
+# ) }

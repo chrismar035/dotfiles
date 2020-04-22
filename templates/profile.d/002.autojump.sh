@@ -1,1 +1,4 @@
-. /usr/share/autojump/autojump.sh
+function j() {
+  . /usr/share/autojump/autojump.sh
+  j "$@"
+}

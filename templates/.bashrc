@@ -2,3 +2,9 @@
 for FN in $HOME/.local/bashrc.d/*.sh ; do
   source "$FN"
 done
+
+# use this for timing info
+# { time (
+#   echo $FN
+#   source "$FN"
+# ) }
