@@ -389,12 +389,6 @@ let g:UltiSnipsJumpForwardTrigger="<c-a>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 " -----------------------------------------------------------------------------
-" |                                Expand Region                              |
-" -----------------------------------------------------------------------------
-vmap v <Plug>(expand_region_expand
-vmap <C-v> <Plug>(expand_region_shrink)
-
-" -----------------------------------------------------------------------------
 " |                                vim-go                                     |
 " -----------------------------------------------------------------------------
 au FileType go nmap <leader>r <Plug>(go-run)
