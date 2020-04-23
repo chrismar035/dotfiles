@@ -91,8 +91,10 @@ sudo apt-get install -y \
 ./setup/texpander/install.sh
 ./setup/texpander/configure.sh
 
-# flameshot
 # OBS
+./setup/obs/install.sh
+
+# kclip / flameshot
 # Zoom
 # Firefox
 # Firefox dev
