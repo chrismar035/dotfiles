@@ -20,3 +20,9 @@ Adds input and output sound device pickers to the main menu to easliy switch to
 and from headphones without opening up the full sound settings
 
 [Install](https://extensions.gnome.org/extension/906/sound-output-device-chooser/)
+
+## WindowOverlay Icons
+
+Adds application icons to window overview
+
+[Install](https://extensions.gnome.org/extension/302/windowoverlay-icons/)
