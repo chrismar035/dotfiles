@@ -319,6 +319,7 @@ Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-abolish'
 Plug 'justinmk/vim-sneak'
 Plug 'machakann/vim-sandwich'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
