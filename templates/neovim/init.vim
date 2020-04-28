@@ -307,6 +307,7 @@ call plug#begin('~/.vim/plugged')
 " Colors
 " Plug 'tristen/superman'
 Plug 'tyrannicaltoucan/vim-deep-space'
+Plug 'rakr/vim-two-firewatch'
 
 " Markdown
 Plug 'godlygeek/tabular' | Plug 'plasticboy/vim-markdown'
