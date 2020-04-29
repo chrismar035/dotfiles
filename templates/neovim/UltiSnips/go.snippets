@@ -30,6 +30,13 @@ if err != nil {
 }
 endsnippet
 
+snippet ferr "Fatal error wrapping"
+if err != nil {
+	err = fmt.Errorf("failed to $1: %w", err)
+	log.Fatal(err)
+}
+endsnippet
+
 snippet tx "Get transaction from Buffalo context" b
 tx := c.Value("tx").(*pop.Connection)
 endsnippet
