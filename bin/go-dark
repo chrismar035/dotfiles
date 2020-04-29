@@ -6,3 +6,5 @@ sed -i 's/colorscheme two-firewatch/colorscheme deep-space/' ~/.local/dotfiles/t
 sed -i 's/set background=light/set background=dark/' ~/.local/dotfiles/templates/neovim/init.vim
 
 sed -i 's/colors: \*light/colors: \*dark/' ~/.local/dotfiles/templates/alacritty.yml
+
+export BAT_THEME="Dracula"
