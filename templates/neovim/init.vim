@@ -464,6 +464,9 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 
 let g:coc_global_extensions = [ 'coc-css', 'coc-emmet', 'coc-html', 'coc-json', 'coc-svg', 'coc-yank', 'coc-prettier' ]
 
+" coc-yank binding
+nnoremap <silent> <space>y  :<C-u>CocList -A --normal yank<cr>
+
 " -----------------------------------------------------------------------------
 " |                              vim-prettier                                  |
 " -----------------------------------------------------------------------------
