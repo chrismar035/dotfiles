@@ -8,3 +8,5 @@ sed -i 's/set background=dark/set background=light/' ~/.local/dotfiles/templates
 sed -i 's/colors: \*dark/colors: \*light/' ~/.local/dotfiles/templates/alacritty.yml
 
 export BAT_THEME="OneHalfLight"
+
+sed -i 's/delta --theme=Dracula/delta --theme=OneHalfLight/' ~/.local/dotfiles/templates/git/.gitconfig
