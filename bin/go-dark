@@ -9,4 +9,4 @@ sed -i 's/colors: \*light/colors: \*dark/' ~/.local/dotfiles/templates/alacritty
 
 export BAT_THEME="Dracula"
 
-sed -i 's/delta --theme=OneHalfLight/delta --theme=Dracula/' ~/.local/dotfiles/templates/git/.gitconfig
+sed -i "s/delta --theme=OneHalfLight/delta --theme='Sublime Snazzy'/" ~/.local/dotfiles/templates/git/.gitconfig
