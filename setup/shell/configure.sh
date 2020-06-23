@@ -18,3 +18,5 @@ if [ -f ~/.profile ]; then
   mv ~/.profile  ~/.profile.backup
 fi
 ln -s ~/.local/dotfiles/templates/.profile ~/.profile
+
+ln -s ~/.local/dotfiles/templates/ripgreprc ~/.ripgreprc
