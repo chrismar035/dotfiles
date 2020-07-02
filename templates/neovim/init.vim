@@ -306,7 +306,7 @@ call plug#begin('~/.vim/plugged')
 
 " Colors
 " Plug 'tristen/superman'
-Plug 'tyrannicaltoucan/vim-deep-space'
+" Plug 'tyrannicaltoucan/vim-deep-space'
 Plug 'rakr/vim-two-firewatch'
 
 " Markdown
@@ -355,7 +355,8 @@ call plug#end()
 
 " colors *********************************************************************
 " colorscheme superman
-colorscheme deep-space
+" colorscheme deep-space
+colorscheme evening
 
 " autocomplpop ***************************************************************
 " complete option
