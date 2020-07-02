@@ -36,7 +36,7 @@ set undoreload=10000
 set hidden
 
 " limit syntax highlighting to 120 chars
-set synmaxcol=120
+" set synmaxcol=120
 
 
 " Indenting *******************************************************************
@@ -142,8 +142,8 @@ set statusline=%n\ %F%2*%y%*%m%r%=%1*%{fugitive#statusline()}%*\ %l,%c%V\ %P
 " Line Wrapping ***************************************************************
 set nowrap
 set linebreak  " Wrap at word
-autocmd BufWinEnter * let w:m2=matchadd('Search', '\%>80v.\%>77v', -1)
-autocmd BufWinEnter * let w:m2=matchadd('Error',  '\%>80v.\+',     -1)
+" autocmd BufWinEnter * let w:m2=matchadd('Search', '\%>80v.\%>77v', -1)
+" autocmd BufWinEnter * let w:m2=matchadd('Error',  '\%>80v.\+',     -1)
 
 " Mappings ********************************************************************
 " Professor VIM says '87% of users prefer jj over esc', jj abrams disagrees
