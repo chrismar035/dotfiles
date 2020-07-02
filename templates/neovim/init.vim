@@ -330,7 +330,7 @@ Plug 'ntpeters/vim-better-whitespace'
 
 Plug 'prettier/vim-prettier', {
   \ 'do': 'npm install',
-  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml'] }
+  \ 'for': ['css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml'] }
 
 " HTML
 Plug 'mattn/emmet-vim'
@@ -462,7 +462,7 @@ endfunction
 " Highlight the symbol and its references when holding the cursor.
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
-let g:coc_global_extensions = [ 'coc-css', 'coc-emmet', 'coc-html', 'coc-json', 'coc-svg', 'coc-yank', 'coc-prettier' ]
+let g:coc_global_extensions = [ 'coc-css', 'coc-emmet', 'coc-html', 'coc-json', 'coc-svg', 'coc-yank', 'coc-eslint' ]
 
 " coc-yank binding
 nnoremap <silent> <space>y  :<C-u>CocList -A --normal yank<cr>
