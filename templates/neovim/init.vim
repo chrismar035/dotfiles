@@ -404,6 +404,7 @@ au FileType go nmap <leader>c <Plug>(go-coverage)
 au FileType go nmap <leader>v <Plug>(go-vet)
 
 au FileType go nmap <Leader>gd <Plug>(go-def)
+au FileType go nmap <Leader>gp <Plug>(go-def-pop)
 
 " Show interfaces implemented under cursor
 au FileType go nmap <Leader>s <Plug>(go-implements)
@@ -421,6 +422,9 @@ let g:go_fmt_command = "goimports"
 
 let g:go_auto_type_info = 1
 let g:go_doc_popup_window = 1
+
+let g:go_metalinter_autosave = 1
+let g:go_list_type = "quickfix"
 
 " -----------------------------------------------------------------------------
 " |                             vim-rubyfmt                                   |
