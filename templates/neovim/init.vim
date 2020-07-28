@@ -492,3 +492,7 @@ let g:prettier#exec_cmd_async = 1
 let g:better_whitespace_enabled=1
 let g:strip_whitespace_on_save=1
 let g:strip_whitelines_at_eof=1
+
+
+" Markdown auto-wrapping
+au FileType markdown setlocal textwidth=80
