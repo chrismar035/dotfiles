@@ -135,7 +135,7 @@
   default = current
   # only rebase divergent remotes on pull
   # and preserve merges when rebasing
-  rebase = preserve
+  rebase = merges
   # Stash dirty changes before pulling/rebasing/merging
   autostash = true
 # color our gits
