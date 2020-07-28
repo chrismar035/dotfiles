@@ -328,9 +328,9 @@ Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'ntpeters/vim-better-whitespace'
 
-Plug 'prettier/vim-prettier', {
-  \ 'do': 'npm install',
-  \ 'for': ['css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml'] }
+" Plug 'prettier/vim-prettier', {
+"   \ 'do': 'npm install',
+"   \ 'for': ['css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml'] }
 
 " HTML
 Plug 'mattn/emmet-vim'
@@ -351,6 +351,9 @@ Plug 'thoughtbot/vim-rspec', { 'for': 'ruby' }
 Plug 'tpope/vim-haml', { 'for': 'haml' }
 Plug 'tpope/vim-cucumber', { 'for': 'cucumber' }
 
+" Typescript
+Plug 'leafgarland/typescript-vim' ", { 'for': 'typescript' }
+Plug 'peitalin/vim-jsx-typescript'
 call plug#end()
 
 " colors *********************************************************************
@@ -463,10 +466,14 @@ endfunction
 " Highlight the symbol and its references when holding the cursor.
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
-let g:coc_global_extensions = [ 'coc-css', 'coc-emmet', 'coc-html', 'coc-json', 'coc-svg', 'coc-yank', 'coc-eslint' ]
+let g:coc_global_extensions = [ 'coc-css', 'coc-emmet', 'coc-html', 'coc-json', 'coc-svg', 'coc-yank', 'coc-eslint', 'coc-prettier', "coc-tsserver" ]
 
 " coc-yank binding
 nnoremap <silent> <space>y  :<C-u>CocList -A --normal yank<cr>
+
+" Navigate diagnostics
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
 " -----------------------------------------------------------------------------
 " |                              vim-prettier                                  |

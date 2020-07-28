@@ -1,4 +1,18 @@
 {
   "html.format.enable": false,
-  "eslint.autoFixOnSave": true
+  "eslint.autoFix": true,
+  "eslint.autoFixOnSave": true,
+  "coc.preferences.formatOnSaveFiletypes": [
+    "javascript",
+    "typescript",
+    "typescriptreact",
+    "json",
+    "javascriptreact"
+  ],
+  "eslint.filetypes": [
+    "javascript",
+    "typescript",
+    "typescriptreact",
+    "javascriptreact"
+  ]
 }
