@@ -105,6 +105,10 @@ let @w = 'g080lF i'
 
 " Wrap method parameters
 let @p = 'f,a'
+
+" Convert pop add_column to drop_column
+let @d = '^ct_dropf,f,dt)'
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Spell checking
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
