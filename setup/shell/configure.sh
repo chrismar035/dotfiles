@@ -13,10 +13,10 @@ if [ -f ~/.bashrc ]; then
 fi
 ln -s ~/.local/dotfiles/templates/.bashrc ~/.bashrc
 
-if [ -f ~/.profile ]; then
-  echo ".profile exists. Moving to ~/.profile.backup"
-  mv ~/.profile  ~/.profile.backup
+if [ -f ~/.zprofile ]; then
+  echo ".zprofile exists. Moving to ~/.zprofile.backup"
+  mv ~/.zprofile  ~/.zprofile.backup
 fi
-ln -s ~/.local/dotfiles/templates/.profile ~/.profile
+ln -s ~/.local/dotfiles/templates/.profile ~/.zprofile
 
 ln -s ~/.local/dotfiles/templates/ripgreprc ~/.ripgreprc

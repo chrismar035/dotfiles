@@ -99,7 +99,7 @@ zstyle ':completion:*' menu select=2
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-source ~/.profile
+source ~/.zprofile
 
 # remove duplicate entries in path
 typeset -aU path
