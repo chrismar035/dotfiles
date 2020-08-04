@@ -2,8 +2,8 @@
 
 set -e
 
-VERSION=1.8.6
-FILENAME=gopass-$VERSION-linux-amd64.deb
+VERSION=1.9.2
+FILENAME=gopass_${VERSION}_linux_amd64.deb
 
 sudo apt-get install -y gnupg2 rng-tools
 
