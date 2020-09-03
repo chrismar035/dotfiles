@@ -10,8 +10,7 @@
 [diff]
   colorMoved = default
 [interactive]
-  diffFilter = delta --color-only
-#defaults for any master branches
+  diffFilter = delta --color-only --theme='Sublime Snazzy'
 [remote "origin"]
   push = HEAD
 # default size of gui
