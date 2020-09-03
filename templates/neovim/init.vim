@@ -342,6 +342,7 @@ Plug 'mattn/emmet-vim'
 
 " Git
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
 Plug 'whiteinge/diffconflicts'
 
 " Go
