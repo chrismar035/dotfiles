@@ -331,6 +331,7 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'ntpeters/vim-better-whitespace'
+Plug 'amadeus/vim-convert-color-to'
 
 " Plug 'prettier/vim-prettier', {
 "   \ 'do': 'npm install',
