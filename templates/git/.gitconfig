@@ -7,6 +7,8 @@
   # disable wrapping in less paginated deff and logs
   # pager = diff-so-fancy | less --tabs=1,5 -R
   pager = delta --theme='Sublime Snazzy' # --plus-color="#012800" --minus-color="#340001"
+[diff]
+  colorMoved = default
 [interactive]
   diffFilter = delta --color-only
 #defaults for any master branches
