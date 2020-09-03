@@ -12,10 +12,6 @@
 #defaults for any master branches
 [remote "origin"]
   push = HEAD
-[branch "master"]
-  remote = origin
-  #merge  = refs/heads/master
-  push   = HEAD
 # default size of gui
 [gui]
   geometry = 1400x800+150+150 400 300
@@ -58,7 +54,8 @@
   cleanup = !git branch -vv | grep gone] | tr -s ' ' | cut -d ' ' -f 2 | xargs git branch -D ' '
   # checkout
   co      = checkout
-  com     = checkout master
+  coma    = checkout master
+  com     = checkout main
   # checkout new story (a custom command I wrote to check branches by YouTrack IDs)
   cos     = checkout-story
   # new branch
@@ -73,10 +70,11 @@
   fix     = commit -a --amend -C HEAD
   # create a fixup commit
   fixup   = commit -a --fixup
-  # update feature branch from the lastest remote master
-  sync    = "!f() { echo Syncing with master && git checkout master && git pull && git checkout - && git rebase master; }; f"
+  # update feature branch from the lastest remote main
+  sync    = "!f() { echo Syncing with main && git checkout main && git pull && git checkout - && git rebase main; }; f"
+  syncm   = "!f() { echo Syncing with master && git checkout master && git pull && git checkout - && git rebase master; }; f"
   # delete and recreate a rebased remote branch
-  rebuild = "!f() { echo Rebuilding $1 from remote && git checkout master && git branch -D $1 && git checkout -t origin/$1; }; f"
+  rebuild = "!f() { echo Rebuilding $1 from remote && git checkout main && git branch -D $1 && git checkout -t origin/$1; }; f"
   # Hard reset to a rebased remote branch
   reorig  = "reset --hard HEAD@{upstream}"
   restream= "!f() { git fetch && git reset --hard HEAD@{upstream}; }; f"
@@ -90,16 +88,17 @@
   rp      = remote prune origin
   # rebase
   rb      = rebase
-  # rebase master
-  rbm     = rebase master
+  # rebase main
+  rbm     = rebase main
   # rebase continue
   rc      = rebase --continue
   # rebase skip
   rs      = rebase --skip
   # rebase interactively
   ri      = rebase -i
-  # rebase onto master interactively
-  rim     = rebase master -i
+  # rebase onto main interactively
+  rim     = rebase main -i
+  rima    = rebase master -i
   # abort an in progress rebase
   fuckit  = rebase --abort
   # force push
@@ -107,7 +106,8 @@
   # push
   p       = push
   # post-merge -- multiple clean up tasks after a merge happens
-  pm      = "!f() { git checkout master && git pull && git sweep; }; f"
+  pm      = "!f() { git checkout main && git pull && git sweep; }; f"
+  pmm     = "!f() { git checkout master && git pull && git sweep; }; f"
   # push new branch and track
   po      = push -u origin
   # push tags
