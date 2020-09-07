@@ -99,7 +99,12 @@ zstyle ':completion:*' menu select=2
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-source ~/.zprofile
+source ~/.bashrc
+source ~/.profile
 
 # remove duplicate entries in path
 typeset -aU path
+
+if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
+  tmux attach -t default || tmux new -s default
+fi
