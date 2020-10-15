@@ -12,7 +12,7 @@ module.exports = {
     fontSize: 13,
 
     // font family with optional fallbacks
-    fontFamily: '"Fira Code", Hermit, Hack, monospace',
+    fontFamily: '"JuliaMono", "Fira Code", Hermit, Hack, monospace',
 
     // default font weight: 'normal' or 'bold'
     fontWeight: 'normal',
