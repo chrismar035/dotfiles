@@ -2,7 +2,7 @@
 
 set -e
 
-sed -i 's/colorscheme evening/colorscheme two-firewatch/' ~/.local/dotfiles/templates/neovim/init.vim
+sed -i 's/colorscheme dracula/colorscheme two-firewatch/' ~/.local/dotfiles/templates/neovim/init.vim
 sed -i 's/set background=dark/set background=light/' ~/.local/dotfiles/templates/neovim/init.vim
 
 sed -i 's/colors: \*dark/colors: \*light/' ~/.local/dotfiles/templates/alacritty.yml

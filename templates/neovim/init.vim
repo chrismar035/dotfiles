@@ -311,7 +311,8 @@ call plug#begin('~/.vim/plugged')
 " Colors
 " Plug 'tristen/superman'
 " Plug 'tyrannicaltoucan/vim-deep-space'
-Plug 'rakr/vim-two-firewatch'
+Plug 'rakr/vim-two-firewatch' " light
+Plug 'dracula/vim', { 'as': 'dracula' } " dark
 
 " Markdown
 Plug 'godlygeek/tabular' | Plug 'plasticboy/vim-markdown'
@@ -365,7 +366,7 @@ call plug#end()
 " colors *********************************************************************
 " colorscheme superman
 " colorscheme deep-space
-colorscheme evening
+colorscheme dracula
 
 " autocomplpop ***************************************************************
 " complete option
