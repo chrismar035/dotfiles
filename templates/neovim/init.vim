@@ -430,8 +430,7 @@ let g:go_fmt_command = "goimports"
 let g:go_auto_type_info = 1
 let g:go_doc_popup_window = 1
 
-let g:go_metalinter_autosave = 1
-let g:go_list_type = "quickfix"
+let g:go_metalinter_autosave = 0
 
 " -----------------------------------------------------------------------------
 " |                             vim-rubyfmt                                   |
@@ -477,7 +476,7 @@ endfunction
 " Highlight the symbol and its references when holding the cursor.
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
-let g:coc_global_extensions = [ 'coc-css', 'coc-emmet', 'coc-html', 'coc-json', 'coc-svg', 'coc-yank', 'coc-eslint', 'coc-prettier', "coc-tsserver" ]
+let g:coc_global_extensions = [ 'coc-css', 'coc-emmet', 'coc-html', 'coc-json', 'coc-svg', 'coc-yank', 'coc-eslint', 'coc-prettier', "coc-tsserver", "coc-go" ]
 
 " coc-yank binding
 nnoremap <silent> <space>y  :<C-u>CocList -A --normal yank<cr>
@@ -485,6 +484,8 @@ nnoremap <silent> <space>y  :<C-u>CocList -A --normal yank<cr>
 " Navigate diagnostics
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
+nmap <silent> <leader>n :<C-u>CocList diagnostics<cr>
+nmap <silent> <leader>. :<C-u>CocListResume<cr>
 
 " -----------------------------------------------------------------------------
 " |                              vim-prettier                                  |
