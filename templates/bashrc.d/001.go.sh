@@ -1,8 +1,8 @@
 #/bin/bash
 
-export PATH="$PATH:/usr/local/go/bin"
 export GOPRIVATE=github.com/growthtools/*,github.com/codegoalie/disneyresorts
 export GOPATH=~/go
+export PATH="$PATH:/usr/local/go/bin:$GOPATH/bin"
 
 alias gmt='go mod tidy'
 
