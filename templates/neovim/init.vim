@@ -197,8 +197,8 @@ nnoremap <silent> <A-Right> :execute 'silent! tabmove ' . tabpagenr()<CR>
 " noremap H gT
 " noremap L gt
 
-" Toggle line numbers
-nnoremap <leader>l :set nonumber!<CR>
+" Toggle line number mode
+nnoremap <leader>l :set rnu!<CR>
 
 " Toggle paste mode
 set pastetoggle=<leader>p
