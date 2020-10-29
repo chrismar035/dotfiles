@@ -4,3 +4,5 @@ set -e
 
 wget https://raw.githubusercontent.com/leehblue/texpander/master/texpander.sh -O ~/bin/texpander.sh
 chmod +x ~/bin/texpander.sh
+
+sudo apt install -y xdotool xsel zenity
