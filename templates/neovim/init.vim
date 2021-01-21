@@ -236,7 +236,7 @@ set sessionoptions=blank,localoptions,options,buffers,curdir,folds,help,resize,t
 
 " Misc ************************************************************************
 set backspace=indent,eol,start
-set relativenumber number " Show line numbers
+set number " Show line numbers
 set matchpairs+=<:>
 set vb t_vb= " Turn off bell, this could be more annoying, but I'm not sure how
 
