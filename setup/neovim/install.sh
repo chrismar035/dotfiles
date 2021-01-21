@@ -4,6 +4,7 @@ set -e
 
 # VERSION=0.4.3
 # wget https://github.com/neovim/neovim/releases/download/v$VERSION/nvim.appimage -o ~/bin/nvim
+# or https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
 # chmod u+x ~/bin/nvim
 # sudo add-apt-repository ppa:neovim-ppa/stable
 # sudo apt update
