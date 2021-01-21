@@ -110,6 +110,16 @@ let @p = 'f,a'
 " Convert pop add_column to drop_column
 let @d = '^ct_dropf,f,dt)'
 
+" Refresh buffer (clear gutter/lint artifacts)
+map <leader>r :call RefreshBuffer()<CR>
+
+function! RefreshBuffer()
+  let view = winsaveview()
+  execute 'bdelete'
+  execute 'buffer #'
+  call winrestview(view)
+endfunction
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Spell checking
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
