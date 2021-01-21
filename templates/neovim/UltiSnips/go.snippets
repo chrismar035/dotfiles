@@ -37,6 +37,13 @@ if err != nil {
 }
 endsnippet
 
+snippet lerr "Log error wrapping"
+if err != nil {
+	err = fmt.Errorf("failed to $1: %w", err)
+	log.Println(err)
+}
+endsnippet
+
 snippet tx "Get transaction from Buffalo context" b
 tx := c.Value("tx").(*pop.Connection)
 endsnippet
