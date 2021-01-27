@@ -111,7 +111,7 @@ let @p = 'f,a'
 let @d = '^ct_dropf,f,dt)'
 
 " Refresh buffer (clear gutter/lint artifacts)
-map <leader>r :call RefreshBuffer()<CR>
+map <leader>rb :call RefreshBuffer()<CR>
 
 function! RefreshBuffer()
   let view = winsaveview()
@@ -339,8 +339,10 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-abolish'
 Plug 'justinmk/vim-sneak'
 Plug 'machakann/vim-sandwich'
+Plug 'kevinhwang91/nvim-bqf'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'amadeus/vim-convert-color-to'
@@ -497,6 +499,47 @@ nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
 nmap <silent> <leader>n :<C-u>CocList diagnostics<cr>
 nmap <silent> <leader>. :<C-u>CocListResume<cr>
+
+
+" nvim-bqf integration
+" :h CocLocationsChange for detail
+let g:coc_enable_locationlist = 0
+augroup Coc
+    autocmd!
+    autocmd User CocLocationsChange ++nested call Coc_qf_jump2loc(g:coc_jump_locations)
+augroup END
+
+nmap <silent> gr <Plug>(coc-references)
+nnoremap <silent> <leader>qd <Cmd>call Coc_qf_diagnostic()<CR>
+
+function! Coc_qf_diagnostic() abort
+    let diagnostic_list = CocAction('diagnosticList')
+    let items = []
+    let loc_ranges = []
+    for d in diagnostic_list
+        let type = d.severity[0]
+        let text = printf('[%s%s] %s [%s]', (empty(d.source) ? 'coc.nvim' : d.source),
+                    \ (d.code ? ' ' . d.code : ''), split(d.message, '\n')[0], type)
+        let item = {'filename': d.file, 'lnum': d.lnum, 'col': d.col, 'text': text, 'type': type}
+        call add(loc_ranges, d.location.range)
+        call add(items, item)
+    endfor
+    call setqflist([], ' ', {'title': 'CocDiagnosticList', 'items': items,
+                \ 'context': {'bqf': {'lsp_ranges_hl': loc_ranges}}})
+    botright copen
+endfunction
+
+function! Coc_qf_jump2loc(locs) abort
+    let loc_ranges = map(deepcopy(a:locs), 'v:val.range')
+    call setloclist(0, [], ' ', {'title': 'CocLocationList', 'items': a:locs,
+                \ 'context': {'bqf': {'lsp_ranges_hl': loc_ranges}}})
+    let winid = getloclist(0, {'winid': 0}).winid
+    if winid == 0
+        aboveleft lwindow
+    else
+        call win_gotoid(winid)
+    endif
+endfunction
 
 " -----------------------------------------------------------------------------
 " |                              vim-prettier                                  |
