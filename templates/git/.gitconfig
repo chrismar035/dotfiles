@@ -69,6 +69,8 @@
   dw      = diff --word-diff
   # ammend my last commit
   fix     = commit -a --amend -C HEAD
+  # create fixup with staged changes
+  cf      = commit --fixup
   # create a fixup commit
   fixup   = commit -a --fixup
   # update feature branch from the lastest remote main
