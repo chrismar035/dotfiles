@@ -68,7 +68,7 @@ ZSH_THEME="clean"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git history-substring-search)
+plugins=(git history-substring-search web-search)
 
 source $ZSH/oh-my-zsh.sh
 
