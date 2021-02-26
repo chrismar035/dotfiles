@@ -35,7 +35,8 @@
   # colorful log (format syntax test)
   clog    = log --format=format:"%Cgreen%h%Creset-%C(yellow)%s%Creset%n%b"
   # super awesome colored graph log
-  lg      = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+  lgg      = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+  lg       = log --graph --abbrev-commit --decorate --all --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(dim white) - %an%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n %C(white)%s%C(reset)'
   # order branches by last commit date
   latest  = "for-each-ref --sort=-committerdate --format='%(committerdate:short) %(refname:short) [%(committername)]'"
   # two days of commits
