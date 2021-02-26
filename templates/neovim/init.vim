@@ -48,6 +48,9 @@ set si " smartindent	(local to buffer)
 set sidescrolloff=2
 set numberwidth=4
 
+" Keep 10 liunes visible when scrolling
+set scrolloff=10
+
 "Vertical split then hop to new buffer
 "noremap ,v :vsp^M^W^W<cr>
 "noremap ,h :split^M^W^W<cr>
