@@ -328,6 +328,9 @@ call plug#begin('~/.vim/plugged')
 Plug 'rakr/vim-two-firewatch' " light
 Plug 'dracula/vim', { 'as': 'dracula' } " dark
 
+" Code screenshots
+Plug 'segeljakt/vim-silicon'
+
 " Markdown
 Plug 'godlygeek/tabular' | Plug 'plasticboy/vim-markdown'
 Plug 'jtratner/vim-flavored-markdown'
@@ -561,3 +564,22 @@ let g:strip_whitelines_at_eof=1
 
 " Markdown auto-wrapping
 au FileType markdown setlocal textwidth=80
+
+" -----------------------------------------------------------------------------
+" |                              vim-silicon                                  |
+" -----------------------------------------------------------------------------
+let g:silicon = {
+      \   'theme':              'Dracula',
+      \   'font':                  'Hack',
+      \   'background':         '#17DA5E',
+      \   'shadow-color':       '#555555',
+      \   'line-pad':                   2,
+      \   'pad-horiz':                 80,
+      \   'pad-vert':                 100,
+      \   'shadow-blur-radius':         0,
+      \   'shadow-offset-x':            0,
+      \   'shadow-offset-y':            0,
+      \   'line-number':           v:true,
+      \   'round-corner':          v:true,
+      \   'window-controls':       v:true,
+      \ }
