@@ -9,7 +9,7 @@ mcd ()
     cd -P -- "$1"
 }
 
-chproj ()
+cdp ()
 {
   docker-compose stop &&
     j $1 &&
