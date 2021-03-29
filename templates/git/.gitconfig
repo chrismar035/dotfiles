@@ -183,3 +183,6 @@
 	insteadOf = https://github.com/
 [init]
 	defaultBranch = main
+[rerere]
+	enabled = true
+	autoupdate = true
