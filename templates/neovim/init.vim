@@ -179,10 +179,10 @@ nmap <leader>w :w!<cr>
 nmap <leader>m :w!<cr>
 
 " Quick Git Blame
-nmap <leader>g :Gblame<cr>
+nmap <leader>g :Git blame<cr>
 
 " Quick Open file in github
-nmap <leader>o :Gbrowse<cr>
+nmap <leader>o :GBrowse<cr>
 
 " Fast editing of the .vimrc file
 let MYVIMRC = "~/.confim/nvim/init.vim"
