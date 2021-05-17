@@ -2,12 +2,16 @@
   "html.format.enable": false,
   "eslint.autoFix": true,
   "eslint.autoFixOnSave": true,
+  "coc.preferences.hoverTarget": "float",
   "coc.preferences.formatOnSaveFiletypes": [
+    "css",
+    "go",
     "javascript",
-    "typescript",
-    "typescriptreact",
+    "javascriptreact",
     "json",
-    "javascriptreact"
+    "scss",
+    "typescript",
+    "typescriptreact"
   ],
   "eslint.filetypes": [
     "javascript",
@@ -21,5 +25,8 @@
       "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
       "filetypes": ["go"]
     }
+  },
+  "go.goplsOptions": {
+    "staticcheck": true
   }
 }
