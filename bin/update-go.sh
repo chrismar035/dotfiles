@@ -8,7 +8,7 @@ then
   exit 1
 fi
 
-FILENAME=go$1.linux-amd64.tar.gz
+FILENAME=go$1.$(uname | tr '[:upper:]' '[:lower:]')-amd64.tar.gz
 URL=https://dl.google.com/go/$FILENAME
 
 wget $URL
