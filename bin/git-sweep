@@ -1,24 +1,31 @@
 #!/bin/bash
 
-# This must be run from main
-git checkout main
+DEFAULT_BRANCH=main
+
+if [ "$1" ]
+then
+  DEFAULT_BRANCH=$1
+fi
+
+# This must be run from $DEFAULT_BRANCH
+git checkout $DEFAULT_BRANCH
 # Update our list of remotes
 git fetch
 git remote prune origin
 # Remove local fully merged branches
-git branch --merged main | grep -v 'main$' | xargs git branch -d
+git branch --merged $DEFAULT_BRANCH | grep -v "$DEFAULT_BRANCH$" | xargs git branch -d
 # Show remote fully merged branches
-remotes_to_prune_count=`git branch -r --merged main | sed 's/ *origin\///' | grep -v 'main$' | wc -l`
+remotes_to_prune_count=`git branch -r --merged $DEFAULT_BRANCH | sed 's/ *origin\///' | grep -v "$DEFAULT_BRANCH$" | wc -l`
 if [ $remotes_to_prune_count -gt 0 ]
 then
   echo "The following remote branches are fully merged and will be removed:"
-  git branch -r --merged main | sed 's/ *origin\///' | grep -v 'main$'
+  git branch -r --merged $DEFAULT_BRANCH | sed 's/ *origin\///' | grep -v "$DEFAULT_BRANCH$"
   read -p "Continue (y/n)? "
   if [ "$REPLY" == "y" ]
   then
      # Remove remote fully merged branches
-     git branch -r --merged main | sed 's/ *origin\///' \
-               | grep -v 'main$' | xargs -I% git push origin :%
+     git branch -r --merged $DEFAULT_BRANCH | sed 's/ *origin\///' \
+               | grep -v "$DEFAULT_BRANCH$" | xargs -I% git push origin :%
      echo "Done!"
   fi
 else
