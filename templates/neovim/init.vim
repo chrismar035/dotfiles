@@ -566,6 +566,17 @@ let g:strip_whitelines_at_eof=1
 
 " Markdown auto-wrapping
 au FileType markdown setlocal textwidth=80
+"
+" -----------------------------------------------------------------------------
+" |                              vim-sandwich                                 |
+" -----------------------------------------------------------------------------
+let g:sandwich#recipes = deepcopy(g:sandwich#default_recipes)
+let g:sandwich#recipes += [
+      \    {'buns': ['#{', '}'], 'input': ['e']}
+      \  ]
+let g:sandwich#recipes += [
+      \    {'buns': ['<%= ', ' %>'], 'input': ['p']}
+      \  ]
 
 " -----------------------------------------------------------------------------
 " |                              vim-silicon                                  |
