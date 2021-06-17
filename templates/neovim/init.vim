@@ -36,9 +36,10 @@ set undolevels=1000
 set undoreload=10000
 set hidden
 
+set timeoutlen=250
+
 " limit syntax highlighting to 120 chars
 " set synmaxcol=120
-
 
 " Indenting *******************************************************************
 set ai " Automatically set the indent of a new line (local to buffer)
@@ -343,7 +344,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-abolish'
-Plug 'justinmk/vim-sneak'
+Plug 'ggandor/lightspeed.nvim'
 Plug 'machakann/vim-sandwich'
 Plug 'kevinhwang91/nvim-bqf'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
