@@ -26,7 +26,11 @@
       "filetypes": ["go"]
     }
   },
+  "solargraph.diagnostics": true,
+  "solargraph.formatting": true,
   "go.goplsOptions": {
     "staticcheck": true
-  }
+  },
+  "javascript.format.enabled": true,
+  "tsserver.log": "verbose"
 }
