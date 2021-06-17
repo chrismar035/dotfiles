@@ -13,7 +13,10 @@ git checkout $DEFAULT_BRANCH
 git fetch
 git remote prune origin
 # Remove local fully merged branches
-git branch --merged $DEFAULT_BRANCH | grep -v "$DEFAULT_BRANCH$" | xargs git branch -d
+# git branch --merged $DEFAULT_BRANCH | grep -v "$DEFAULT_BRANCH$" | xargs git branch -d
+for branch in $(git for-each-ref --format='%(if:equals=[gone])%(upstream:track)%(then)%(refname:short)%(end)' refs/heads); do
+  git branch -D $branch;
+done
 # Show remote fully merged branches
 remotes_to_prune_count=`git branch -r --merged $DEFAULT_BRANCH | sed 's/ *origin\///' | grep -v "$DEFAULT_BRANCH$" | wc -l`
 if [ $remotes_to_prune_count -gt 0 ]
