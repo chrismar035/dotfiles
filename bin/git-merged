@@ -1,5 +1,12 @@
 #!/bin/sh
 
-git checkout main
+DEFAULT_BRANCH=main
+
+if [ "$1" ]
+then
+  DEFAULT_BRANCH=$1
+fi
+
+git checkout $DEFAULT_BRANCH
 git pull
-git sweep
+git sweep $DEFAULT_BRANCH
