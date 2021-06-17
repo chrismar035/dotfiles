@@ -75,8 +75,9 @@
   # create a fixup commit
   fixup   = commit -a --fixup
   # update feature branch from the lastest remote main
+  syn     = "!f() { echo Syncing with $1 && git checkout $1 && git pull && git checkout - && git rebase $1; }; f"
   sync    = "!f() { echo Syncing with main && git checkout main && git pull && git checkout - && git rebase main; }; f"
-  syncm   = "!f() { echo Syncing with master && git checkout master && git pull && git checkout - && git rebase master; }; f"
+  syncd   = "!f() { echo Syncing with develop && git checkout develop && git pull && git checkout - && git rebase develop; }; f"
   # delete and recreate a rebased remote branch
   rebuild = "!f() { echo Rebuilding $1 from remote && git checkout main && git branch -D $1 && git checkout -t origin/$1; }; f"
   # Hard reset to a rebased remote branch
@@ -103,6 +104,7 @@
   # rebase onto main interactively
   rim     = rebase main -i
   rima    = rebase master -i
+  rid     = rebase develop -i
   # abort an in progress rebase
   fuckit  = rebase --abort
   # force push
