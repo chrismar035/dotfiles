@@ -322,13 +322,7 @@ endif
 
 call plug#begin('~/.vim/plugged')
 
-" Unused theme plugins
-" Plug 'gilgigilgil/anderson.vim'
-" Plug 'gosukiwi/vim-atom-dark'
-
 " Colors
-" Plug 'tristen/superman'
-" Plug 'tyrannicaltoucan/vim-deep-space'
 Plug 'rakr/vim-two-firewatch' " light
 Plug 'dracula/vim', { 'as': 'dracula' } " dark
 
