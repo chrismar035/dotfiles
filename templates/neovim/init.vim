@@ -218,6 +218,9 @@ nnoremap <leader>l :set rnu!<CR>
 " Toggle paste mode
 set pastetoggle=<leader>p
 
+" Crtl+R to search replace current selection
+vnoremap <C-r> "hy:%s/<C-r>h//g<left><left>
+
 " File Stuff ******************************************************************
 filetype plugin indent on
 au BufNewFile,BufRead *.rxls set filetype=ruby
