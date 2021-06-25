@@ -350,14 +350,14 @@ Plug 'ntpeters/vim-better-whitespace'
 Plug 'amadeus/vim-convert-color-to'
 Plug 'junegunn/vim-peekaboo'
 
-" Plug 'prettier/vim-prettier', {
-"   \ 'do': 'npm install',
-"   \ 'for': ['css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml'] }
 
 " telescope
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
+
+" Front-end
+Plug 'prettier/vim-prettier', { 'do': 'npm install' }
 
 " HTML
 Plug 'mattn/emmet-vim'
