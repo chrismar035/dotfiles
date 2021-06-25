@@ -288,7 +288,7 @@ autocmd FileType ruby let b:dispatch = 'zeus rspec %'
 "improve autocomplete menu color
 " highlight Pmenu ctermbg=238 gui=bold
 
-" set completeopt=menu,preview
+set completeopt="menuone,noselect"
 
 
 " Folding *********************************************************************
@@ -350,8 +350,6 @@ Plug 'tpope/vim-abolish'
 Plug 'ggandor/lightspeed.nvim'
 Plug 'machakann/vim-sandwich'
 Plug 'kevinhwang91/nvim-bqf'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'ntpeters/vim-better-whitespace'
@@ -361,6 +359,11 @@ Plug 'junegunn/vim-peekaboo'
 " Plug 'prettier/vim-prettier', {
 "   \ 'do': 'npm install',
 "   \ 'for': ['css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml'] }
+
+" telescope
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
 
 " HTML
 Plug 'mattn/emmet-vim'
@@ -392,21 +395,69 @@ call plug#end()
 " colorscheme deep-space
 colorscheme dracula
 
-" autocomplpop ***************************************************************
-" complete option
-"set complete=.,w,b,u,t,k
-"let g:AutoComplPop_CompleteOption = '.,w,b,u,t,k'
-"set complete=.
-let g:AutoComplPop_IgnoreCaseOption = 0
-let g:AutoComplPop_BehaviorKeywordLength = 2
-
 
 " -----------------------------------------------------------------------------
-" |                                  fzf                                      |
+" |                               telescope                                   |
 " -----------------------------------------------------------------------------
-noremap <leader>j :Files<cr>
-noremap gb :Buffers<cr>
-let g:fzf_buffers_jump = 1
+nnoremap <Leader>j :lua require'telescope.builtin'.find_files(require('telescope.themes').get_ivy({ winblend = 10 }))<cr>
+nnoremap <leader>f <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap gb :lua require'telescope.builtin'.buffers(require('telescope.themes').get_ivy({ winblend = 10 }))<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+
+highlight link CompeDocumentation NormalFloat
+
+lua << EOF
+require('telescope').setup{
+  defaults = {
+    vimgrep_arguments = {
+      'rg',
+      '--color=never',
+      '--no-heading',
+      '--with-filename',
+      '--line-number',
+      '--column',
+      '--smart-case'
+    },
+    prompt_position = "bottom",
+    prompt_prefix = "> ",
+    selection_caret = "> ",
+    entry_prefix = "  ",
+    initial_mode = "insert",
+    selection_strategy = "reset",
+    sorting_strategy = "descending",
+    layout_strategy = "horizontal",
+    layout_defaults = {
+      horizontal = {
+        mirror = false,
+      },
+      vertical = {
+        mirror = false,
+      },
+    },
+    file_sorter =  require'telescope.sorters'.get_fuzzy_file,
+    file_ignore_patterns = {},
+    generic_sorter =  require'telescope.sorters'.get_generic_fuzzy_sorter,
+    shorten_path = true,
+    winblend = 0,
+    width = 0.75,
+    preview_cutoff = 120,
+    results_height = 1,
+    results_width = 0.8,
+    border = {},
+    borderchars = { '─', '│', '─', '│', '╭', '╮', '╯', '╰' },
+    color_devicons = true,
+    use_less = true,
+    set_env = { ['COLORTERM'] = 'truecolor' }, -- default = nil,
+    file_previewer = require'telescope.previewers'.vim_buffer_cat.new,
+    grep_previewer = require'telescope.previewers'.vim_buffer_vimgrep.new,
+    qflist_previewer = require'telescope.previewers'.vim_buffer_qflist.new,
+
+    -- Developer configurations: Not meant for general override
+    buffer_previewer_maker = require'telescope.previewers'.buffer_previewer_maker
+  }
+}
+EOF
 
 " -----------------------------------------------------------------------------
 " |                                Vim Rspec                                  |
