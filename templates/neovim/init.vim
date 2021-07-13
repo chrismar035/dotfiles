@@ -395,10 +395,10 @@ colorscheme dracula
 " -----------------------------------------------------------------------------
 " |                               telescope                                   |
 " -----------------------------------------------------------------------------
-nnoremap <Leader>j :lua require'telescope.builtin'.find_files(require('telescope.themes').get_ivy({ winblend = 10 }))<cr>
+nnoremap <Leader>j :lua require'telescope.builtin'.find_files(require('telescope.themes').get_ivy())<cr>
 nnoremap <leader>f <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
-nnoremap gb :lua require'telescope.builtin'.buffers(require('telescope.themes').get_ivy({ winblend = 10 }))<cr>
+nnoremap gb :lua require'telescope.builtin'.buffers(require('telescope.themes').get_ivy())<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
 highlight link CompeDocumentation NormalFloat
@@ -415,7 +415,6 @@ require('telescope').setup{
       '--column',
       '--smart-case'
     },
-    prompt_position = "bottom",
     prompt_prefix = "> ",
     selection_caret = "> ",
     entry_prefix = "  ",
@@ -423,7 +422,10 @@ require('telescope').setup{
     selection_strategy = "reset",
     sorting_strategy = "descending",
     layout_strategy = "horizontal",
-    layout_defaults = {
+    layout_config = {
+      width = 0.75,
+      prompt_position = "bottom",
+      preview_cutoff = 120,
       horizontal = {
         mirror = false,
       },
@@ -434,12 +436,11 @@ require('telescope').setup{
     file_sorter =  require'telescope.sorters'.get_fuzzy_file,
     file_ignore_patterns = {},
     generic_sorter =  require'telescope.sorters'.get_generic_fuzzy_sorter,
-    shorten_path = true,
-    winblend = 0,
-    width = 0.75,
-    preview_cutoff = 120,
-    results_height = 1,
-    results_width = 0.8,
+    path_display = {
+      "shorten",
+      "absolute",
+    },
+    winblend = 10,
     border = {},
     borderchars = { '─', '│', '─', '│', '╭', '╮', '╯', '╰' },
     color_devicons = true,
