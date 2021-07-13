@@ -345,11 +345,13 @@ Plug 'ggandor/lightspeed.nvim'
 Plug 'machakann/vim-sandwich'
 Plug 'kevinhwang91/nvim-bqf'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'amadeus/vim-convert-color-to'
 Plug 'junegunn/vim-peekaboo'
 
+" Language server protocol
+Plug 'neovim/nvim-lspconfig'
+Plug 'hrsh7th/nvim-compe'
 
 " telescope
 Plug 'nvim-lua/popup.nvim'
@@ -507,97 +509,6 @@ let g:go_metalinter_autosave = 0
 let g:rubyfmt_autoopen = 1
 
 " -----------------------------------------------------------------------------
-" |                               coc-vim                                     |
-" -----------------------------------------------------------------------------
-" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
-" delays and poor user experience.
-set updatetime=300
-
-" Don't pass messages to |ins-completion-menu|.
-set shortmess+=c
-
-" Use tab for trigger completion with characters ahead and navigate.
-" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
-" other plugin before putting this into your config.
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-" Use <c-space> to trigger completion.
-" inoremap <silent><expr> <c-space> coc#refresh()
-
-" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
-" position. Coc only does snippet and additional edit on confirm.
-" if has('patch8.1.1068')
-"   " Use `complete_info` if your (Neo)Vim version supports it.
-"   inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
-" else
-"   imap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-" endif
-
-" Highlight the symbol and its references when holding the cursor.
-autocmd CursorHold * silent call CocActionAsync('highlight')
-
-let g:coc_global_extensions = [ 'coc-css', 'coc-emmet', 'coc-html', 'coc-json', 'coc-svg', 'coc-yank', 'coc-eslint', 'coc-prettier', "coc-tsserver", "coc-go", "coc-solargraph" ]
-
-" coc-yank binding
-nnoremap <silent> <space>y  :<C-u>CocList -A --normal yank<cr>
-
-" Navigate diagnostics
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
-nmap <silent> <leader>n :<C-u>CocList diagnostics<cr>
-nmap <silent> <leader>. :<C-u>CocListResume<cr>
-
-
-" nvim-bqf integration
-" :h CocLocationsChange for detail
-let g:coc_enable_locationlist = 0
-augroup Coc
-    autocmd!
-    autocmd User CocLocationsChange ++nested call Coc_qf_jump2loc(g:coc_jump_locations)
-augroup END
-
-nmap <silent> gr <Plug>(coc-references)
-nnoremap <silent> <leader>qd <Cmd>call Coc_qf_diagnostic()<CR>
-
-function! Coc_qf_diagnostic() abort
-    let diagnostic_list = CocAction('diagnosticList')
-    let items = []
-    let loc_ranges = []
-    for d in diagnostic_list
-        let type = d.severity[0]
-        let text = printf('[%s%s] %s [%s]', (empty(d.source) ? 'coc.nvim' : d.source),
-                    \ (d.code ? ' ' . d.code : ''), split(d.message, '\n')[0], type)
-        let item = {'filename': d.file, 'lnum': d.lnum, 'col': d.col, 'text': text, 'type': type}
-        call add(loc_ranges, d.location.range)
-        call add(items, item)
-    endfor
-    call setqflist([], ' ', {'title': 'CocDiagnosticList', 'items': items,
-                \ 'context': {'bqf': {'lsp_ranges_hl': loc_ranges}}})
-    botright copen
-endfunction
-
-function! Coc_qf_jump2loc(locs) abort
-    let loc_ranges = map(deepcopy(a:locs), 'v:val.range')
-    call setloclist(0, [], ' ', {'title': 'CocLocationList', 'items': a:locs,
-                \ 'context': {'bqf': {'lsp_ranges_hl': loc_ranges}}})
-    let winid = getloclist(0, {'winid': 0}).winid
-    if winid == 0
-        aboveleft lwindow
-    else
-        call win_gotoid(winid)
-    endif
-endfunction
-
-" -----------------------------------------------------------------------------
 " |                              vim-prettier                                  |
 " -----------------------------------------------------------------------------
 let g:prettier#autoformat = 1
@@ -644,3 +555,107 @@ let g:silicon = {
       \   'round-corner':          v:true,
       \   'window-controls':       v:true,
       \ }
+
+
+" -----------------------------------------------------------------------------
+" |                              lsp                                  |
+" -----------------------------------------------------------------------------
+lua << EOF
+require'lspconfig'.gopls.setup{}
+require'lspconfig'.solargraph.setup{}
+
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+capabilities.textDocument.completion.completionItem.resolveSupport = {
+  properties = {
+    'documentation',
+    'detail',
+    'additionalTextEdits',
+  }
+}
+
+require'lspconfig'.rust_analyzer.setup {
+  capabilities = capabilities,
+}
+
+require'lspconfig'.stylelint_lsp.setup{}
+
+local htmlcapabilities = vim.lsp.protocol.make_client_capabilities()
+htmlcapabilities.textDocument.completion.completionItem.snippetSupport = true
+
+require'lspconfig'.html.setup {
+  capabilities = htmlcapabilities,
+}
+
+local t = function(str)
+  return vim.api.nvim_replace_termcodes(str, true, true, true)
+end
+
+local check_back_space = function()
+    local col = vim.fn.col('.') - 1
+    if col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') then
+        return true
+    else
+        return false
+    end
+end
+
+-- Use (s-)tab to:
+--- move to prev/next item in completion menuone
+--- jump to prev/next snippet's placeholder
+_G.tab_complete = function()
+  if vim.fn.pumvisible() == 1 then
+    return t "<C-n>"
+--  elseif vim.fn.call("vsnip#available", {1}) == 1 then
+--    return t "<Plug>(vsnip-expand-or-jump)"
+  elseif check_back_space() then
+    return t "<Tab>"
+  else
+    return vim.fn['compe#complete']()
+  end
+end
+_G.s_tab_complete = function()
+  if vim.fn.pumvisible() == 1 then
+    return t "<C-p>"
+  elseif vim.fn.call("vsnip#jumpable", {-1}) == 1 then
+    return t "<Plug>(vsnip-jump-prev)"
+  else
+    -- If <S-Tab> is not working in your terminal, change it to <C-h>
+    return t "<S-Tab>"
+  end
+end
+
+vim.api.nvim_set_keymap("i", "<Tab>", "v:lua.tab_complete()", {expr = true})
+vim.api.nvim_set_keymap("s", "<Tab>", "v:lua.tab_complete()", {expr = true})
+vim.api.nvim_set_keymap("i", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
+vim.api.nvim_set_keymap("s", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
+EOF
+
+let g:compe = {}
+let g:compe.enabled = v:true
+let g:compe.autocomplete = v:true
+let g:compe.debug = v:false
+let g:compe.min_length = 1
+let g:compe.preselect = 'enable'
+let g:compe.throttle_time = 80
+let g:compe.source_timeout = 200
+let g:compe.incomplete_delay = 400
+let g:compe.max_abbr_width = 100
+let g:compe.max_kind_width = 100
+let g:compe.max_menu_width = 100
+let g:compe.documentation = v:true
+
+let g:compe.source = {}
+let g:compe.source.path = v:true
+let g:compe.source.buffer = v:true
+let g:compe.source.calc = v:true
+let g:compe.source.nvim_lsp = v:true
+let g:compe.source.nvim_lua = v:true
+let g:compe.source.vsnip = v:true
+let g:compe.source.ultisnips = v:true
+
+inoremap <silent><expr> <C-Space> compe#complete()
+"inoremap <silent><expr> <CR>      compe#confirm('<CR>')
+inoremap <silent><expr> <C-e>     compe#close('<C-e>')
+inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
+inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
