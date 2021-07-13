@@ -76,6 +76,9 @@ source $ZSH/oh-my-zsh.sh
 
 zstyle ':completion:*' menu select=2
 
+bindkey -v
+export KEYTIMEOUT=1
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
