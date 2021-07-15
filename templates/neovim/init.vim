@@ -610,12 +610,16 @@ let g:silicon = {
 
 
 " -----------------------------------------------------------------------------
-" |                              lsp                                  |
+" |                                  lsp                                      |
 " -----------------------------------------------------------------------------
+"au BufWrite * lua vim.lsp.buf.formatting()
 lua << EOF
 require'lspconfig'.gopls.setup{}
 require'lspconfig'.solargraph.setup{}
+require'lspconfig'.pyright.setup{}
+require'lspconfig'.tsserver.setup{}
 
+-- Rust
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 capabilities.textDocument.completion.completionItem.resolveSupport = {
@@ -629,8 +633,15 @@ require'lspconfig'.rust_analyzer.setup {
   capabilities = capabilities,
 }
 
-require'lspconfig'.stylelint_lsp.setup{}
+require'lspconfig'.stylelint_lsp.setup{
+  settings = {
+    stylelintplus = {
+      autoFixOnFormat = true,
+    }
+  }
+}
 
+-- HTML
 local htmlcapabilities = vim.lsp.protocol.make_client_capabilities()
 htmlcapabilities.textDocument.completion.completionItem.snippetSupport = true
 
