@@ -648,4 +648,6 @@ htmlcapabilities.textDocument.completion.completionItem.snippetSupport = true
 require'lspconfig'.html.setup {
   capabilities = htmlcapabilities,
 }
+
+vim.api.nvim_command("au BufWritePre * lua vim.lsp.buf.formatting_sync(nil, 1000)")
 EOF
