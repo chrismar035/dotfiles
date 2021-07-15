@@ -231,10 +231,10 @@ au BufNewFile,BufRead *_steps.rb set filetype=cucumber
 " Strip trailing whitespace from certain file types
 autocmd FileType c,cpp,java,php,ruby,scss,feature,python,haml,javascript,scss autocmd BufWritePre <buffer> :%s/\s\+$//e
 
-" Inser New Line **************************************************************
-map <S-Enter> O<ESC> " awesome, inserts new line without going into insert mode
+" Insert New Line **************************************************************
+" awesome, inserts new line without going into insert mode
+map <S-Enter> O<ESC>
 map <Enter> o<ESC>
-
 
 " Sessions ********************************************************************
 " Sets what is saved when you save a session
@@ -305,9 +305,6 @@ set nofoldenable   " disable folding
 if filereadable(expand("~/.vimrc.local"))
   source ~/.vimrc.local
 endif
-
-
-
 
 " -----------------------------------------------------------------------------
 " -----------------------------------------------------------------------------
@@ -578,7 +575,6 @@ capabilities.textDocument.completion.completionItem.resolveSupport = {
     'additionalTextEdits',
   }
 }
-
 require'lspconfig'.rust_analyzer.setup {
   capabilities = capabilities,
 }
