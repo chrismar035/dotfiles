@@ -401,6 +401,7 @@ nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 highlight link CompeDocumentation NormalFloat
 
 lua << EOF
+local actions = require('telescope.actions')
 require('telescope').setup{
   defaults = {
     vimgrep_arguments = {
