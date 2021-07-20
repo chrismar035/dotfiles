@@ -1,3 +1,11 @@
+snippet fibhan "Handler func for Fiber v2" b
+func $1(q *repo.Queries) func(*fiber.Ctx) error {
+	return func(c *fiber.Ctx) error {
+		$2
+	}
+}
+endsnippet
+
 snippet bufact "Handler func for Buffalo" b
 // $1 $2
 func ${1}(c buffalo.Context) error {
